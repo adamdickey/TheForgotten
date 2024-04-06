@@ -1,9 +1,0 @@
-{
-  "${modID}:Targeting Potion": {
-    "NAME": "Targeting Potion",
-    "DESCRIPTIONS": [
-      "Apply #b",
-      " #yTarget."
-    ]
-  }
-}

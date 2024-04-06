@@ -1,6 +1,0 @@
-{
-  "${modID}:Memory": {
-    "NAME": "Memory",
-    "DESCRIPTION": "Retain. NL Discard up to !M! cards. NL Draw that many cards next turn. NL Exhaust."
-  }
-}
