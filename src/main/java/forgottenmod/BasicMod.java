@@ -1,4 +1,4 @@
-package memorymod;
+package forgottenmod;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
@@ -6,11 +6,11 @@ import basemod.abstracts.CustomRelic;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import memorymod.cards.BaseCard;
-import memorymod.potions.BasePotion;
-import memorymod.util.GeneralUtils;
-import memorymod.util.KeywordInfo;
-import memorymod.util.TextureLoader;
+import forgottenmod.util.GeneralUtils;
+import forgottenmod.util.KeywordInfo;
+import forgottenmod.util.TextureLoader;
+import forgottenmod.cards.BaseCard;
+import forgottenmod.potions.BasePotion;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
@@ -24,11 +24,11 @@ import com.megacrit.cardcrawl.localization.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
-import thememoryman.TheMemoryMan;
+import theforgotten.TheForgotten;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-import static thememoryman.TheMemoryMan.Enums.*;
+import static theforgotten.TheForgotten.Enums.*;
 
 @SpireInitializer
 public class BasicMod implements
@@ -42,7 +42,7 @@ public class BasicMod implements
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
     public static final Logger logger = LogManager.getLogger(modID); //Used to output to the console.
-    private static final String resourcesFolder = "memorymod";
+    private static final String resourcesFolder = "forgottenmod";
 
     private static final String BG_ATTACK = characterPath("cardback/bg_attack.png");
     private static final String BG_ATTACK_P = characterPath("cardback/bg_attack_p.png");
@@ -50,18 +50,9 @@ public class BasicMod implements
     private static final String BG_SKILL_P = characterPath("cardback/bg_skill_p.png");
     private static final String BG_POWER = characterPath("cardback/bg_power.png");
     private static final String BG_POWER_P = characterPath("cardback/bg_power_p.png");
-    private static final String COLORLESS_ATTACK = characterPath("cardback/colorless_attack.png");
-    private static final String COLORLESS_ATTACK_P = characterPath("cardback/colorless_attack_p.png");
-    private static final String COLORLESS_SKILL = characterPath("cardback/colorless_skill.png");
-    private static final String COLORLESS_SKILL_P = characterPath("cardback/colorless_skill_p.png");
-    private static final String COLORLESS_POWER = characterPath("cardback/colorless_power.png");
-    private static final String COLORLESS_POWER_P = characterPath("cardback/colorless_power_p.png");
     private static final String ENERGY_ORB = characterPath("cardback/energy_prismatic.png");
     private static final String ENERGY_ORB_P = characterPath("cardback/energy_prismatic_p.png");
     private static final String SMALL_ORB = characterPath("cardback/small_prismatic.png");
-    private static final String ENERGY_COLORLESS = characterPath("cardback/energy_colorless.png");
-    private static final String ENERGY_COLORLESS_P = characterPath("cardback/energy_colorless_p.png");
-    private static final String SMALL_COLORLESS = characterPath("cardback/small_colorless.png");
     private static final Color cardColor = new Color(1f, 1f, 1f, 1f);
     //red, green, blue, alpha. alpha is transparency, which should just be 1.
     private static final String CHAR_SELECT_BUTTON = characterPath("select/button.png");
@@ -81,10 +72,6 @@ public class BasicMod implements
                 BG_ATTACK, BG_SKILL, BG_POWER, ENERGY_ORB,
                 BG_ATTACK_P, BG_SKILL_P, BG_POWER_P, ENERGY_ORB_P,
                 SMALL_ORB);
-        BaseMod.addColor(Colorless, Color.GRAY,
-                COLORLESS_ATTACK, COLORLESS_SKILL, COLORLESS_POWER, ENERGY_COLORLESS,
-                COLORLESS_ATTACK_P, COLORLESS_SKILL_P, COLORLESS_POWER_P, ENERGY_COLORLESS_P,
-                SMALL_COLORLESS);
     }
 
     public BasicMod() {
@@ -228,7 +215,7 @@ public class BasicMod implements
 
     @Override
     public void receiveEditCharacters() {
-        BaseMod.addCharacter(new TheMemoryMan(),
+        BaseMod.addCharacter(new TheForgotten(),
                 CHAR_SELECT_BUTTON, CHAR_SELECT_PORTRAIT, MemoryMan);
     }
 

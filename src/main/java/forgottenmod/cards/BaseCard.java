@@ -1,10 +1,12 @@
-package memorymod.cards;
+package forgottenmod.cards;
 
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.abstracts.DynamicVariable;
-import memorymod.BasicMod;
-import memorymod.util.CardStats;
+import forgottenmod.BasicMod;
+import forgottenmod.util.CardStats;
+import forgottenmod.util.GeneralUtils;
+import forgottenmod.util.TextureLoader;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -17,9 +19,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiFunction;
-
-import static memorymod.util.GeneralUtils.removePrefix;
-import static memorymod.util.TextureLoader.getCardTextureString;
 
 
 public abstract class BaseCard extends CustomCard {
@@ -62,7 +61,7 @@ public abstract class BaseCard extends CustomCard {
     }
     public BaseCard(String ID, int cost, CardType cardType, CardTarget target, CardRarity rarity, CardColor color)
     {
-        super(ID, getName(ID), getCardTextureString(removePrefix(ID), cardType), cost, getInitialDescription(ID), cardType, color, rarity, target);
+        super(ID, getName(ID), TextureLoader.getCardTextureString(GeneralUtils.removePrefix(ID), cardType), cost, getInitialDescription(ID), cardType, color, rarity, target);
         this.cardStrings = CardCrawlGame.languagePack.getCardStrings(cardID);
         this.originalName = cardStrings.NAME;
 

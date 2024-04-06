@@ -1,4 +1,4 @@
-package memorymod.util;
+package forgottenmod.util;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 

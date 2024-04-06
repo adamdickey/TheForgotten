@@ -1,6 +1,0 @@
-{
-  "${modID}:Targeting Strike": {
-    "NAME": "Targeting Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Target to ALL enemies."
-  }
-}

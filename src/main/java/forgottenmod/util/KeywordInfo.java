@@ -1,4 +1,4 @@
-package memorymod.util;
+package forgottenmod.util;
 
 public class KeywordInfo {
     public String ID = "";

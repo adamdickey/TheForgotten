@@ -1,13 +1,12 @@
-package memorymod.relics;
+package forgottenmod.relics;
 
 import basemod.abstracts.CustomRelic;
 import basemod.helpers.RelicType;
-import memorymod.util.GeneralUtils;
-import memorymod.util.TextureLoader;
+import forgottenmod.BasicMod;
+import forgottenmod.util.GeneralUtils;
+import forgottenmod.util.TextureLoader;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-
-import static memorymod.BasicMod.relicPath;
 
 public abstract class BaseRelic extends CustomRelic {
     public AbstractCard.CardColor pool = null;
@@ -32,9 +31,9 @@ public abstract class BaseRelic extends CustomRelic {
     }
 
     protected void loadTexture() {
-        this.img = TextureLoader.getTextureNull(relicPath(imageName + ".png"), true);
+        this.img = TextureLoader.getTextureNull(BasicMod.relicPath(imageName + ".png"), true);
         if (img != null) {
-            outlineImg = TextureLoader.getTextureNull(relicPath(imageName + "Outline.png"), true);
+            outlineImg = TextureLoader.getTextureNull(BasicMod.relicPath(imageName + "Outline.png"), true);
             if (outlineImg == null)
                 outlineImg = img;
         }
@@ -48,7 +47,7 @@ public abstract class BaseRelic extends CustomRelic {
     @Override
     public void loadLargeImg() {
         if (largeImg == null) {
-            this.largeImg = ImageMaster.loadImage(relicPath("large/" + imageName + ".png"));
+            this.largeImg = ImageMaster.loadImage(BasicMod.relicPath("large/" + imageName + ".png"));
         }
     }
 

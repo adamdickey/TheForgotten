@@ -1,4 +1,4 @@
-package thememoryman;
+package theforgotten;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
@@ -11,8 +11,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.blue.*;
-import com.megacrit.cardcrawl.cards.blue.Stack;
-import com.megacrit.cardcrawl.cards.colorless.*;
 import com.megacrit.cardcrawl.cards.green.*;
 import com.megacrit.cardcrawl.cards.purple.*;
 import com.megacrit.cardcrawl.cards.red.*;
@@ -25,19 +23,19 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.relics.PrismaticShard;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import memorymod.util.TextureLoader;
+import forgottenmod.relics.SentimentalLocket;
+import forgottenmod.util.TextureLoader;
 
 import java.util.*;
 
 import static com.badlogic.gdx.math.MathUtils.random;
-import static memorymod.BasicMod.characterPath;
-import static memorymod.BasicMod.makeID;
-import static thememoryman.TheMemoryMan.Enums.*;
+import static forgottenmod.BasicMod.characterPath;
+import static forgottenmod.BasicMod.makeID;
+import static theforgotten.TheForgotten.Enums.*;
 
-public class TheMemoryMan extends CustomPlayer {
+public class TheForgotten extends CustomPlayer {
     //Stats
     public static final int ENERGY_PER_TURN = 3;
     public static final int MAX_HP = 72;
@@ -50,18 +48,18 @@ public class TheMemoryMan extends CustomPlayer {
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
-    private static final String[] orbPath = new String[]{"memorymod/images/character/energy orb/layer1.png",
-            "memorymod/images/character/energy orb/layer2.png",
-            "memorymod/images/character/energy orb/layer3.png",
-            "memorymod/images/character/energy orb/layer4.png",
-            "memorymod/images/character/energy orb/layer5.png",
-            "memorymod/images/character/energy orb/layer6.png",
-            "memorymod/images/character/energy orb/layer1d.png",
-            "memorymod/images/character/energy orb/layer2d.png",
-            "memorymod/images/character/energy orb/layer3d.png",
-            "memorymod/images/character/energy orb/layer4d.png",
-            "memorymod/images/character/energy orb/layer5d.png"};
-    private static final String orbVfxPath = "memorymod/images/character/energy orb/vfx.png";
+    private static final String[] orbPath = new String[]{"forgottenmod/images/character/energy orb/layer1.png",
+            "forgottenmod/images/character/energy orb/layer2.png",
+            "forgottenmod/images/character/energy orb/layer3.png",
+            "forgottenmod/images/character/energy orb/layer4.png",
+            "forgottenmod/images/character/energy orb/layer5.png",
+            "forgottenmod/images/character/energy orb/layer6.png",
+            "forgottenmod/images/character/energy orb/layer1d.png",
+            "forgottenmod/images/character/energy orb/layer2d.png",
+            "forgottenmod/images/character/energy orb/layer3d.png",
+            "forgottenmod/images/character/energy orb/layer4d.png",
+            "forgottenmod/images/character/energy orb/layer5d.png"};
+    private static final String orbVfxPath = "forgottenmod/images/character/energy orb/vfx.png";
 
     //Image file paths
     private static final String SHOULDER_1 = characterPath("shoulder.png"); //Shoulder 1 and 2 are used at rest sites.
@@ -77,18 +75,13 @@ public class TheMemoryMan extends CustomPlayer {
         public static AbstractCard.CardColor CARD_COLOR;
         @SpireEnum(name = "CHARACTER_WHITE_COLOR") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
-
-        @SpireEnum(name = "Colorless Cards") // These two MUST match. Change it to something unique for your character.
-        public static AbstractCard.CardColor Colorless;
-        @SpireEnum(name = "Colorless Cards") @SuppressWarnings("unused")
-        public static CardLibrary.LibraryType Colorless_Color;
     }
     public ArrayList<AbstractCard> getCardPool(ArrayList<AbstractCard> tmpPool) {
         CardLibrary.addCardsIntoPool(tmpPool, CARD_COLOR);
         return tmpPool;
     }
 
-    public TheMemoryMan() {
+    public TheForgotten() {
         super(NAMES[0], MemoryMan,
                 new CustomEnergyOrb(orbPath, orbVfxPath, null), //Energy OrbSlot
                 new SpineAnimation(characterPath("animation/skeleton.atlas"), characterPath( "animation/skeleton.json"), 1f));
@@ -128,6 +121,7 @@ public class TheMemoryMan extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
+        retVal.add(SentimentalLocket.ID);
         retVal.add(PrismaticShard.ID);
         return retVal;
     }
@@ -217,7 +211,7 @@ public class TheMemoryMan extends CustomPlayer {
         List<CutscenePanel> panels = new ArrayList<>();
         panels.add(new CutscenePanel("images/scenes/defect1.png", "ATTACK_MAGIC_BEAM_SHORT"));
         panels.add(new CutscenePanel("images/scenes/defect2.png"));
-        panels.add(new CutscenePanel("memorymod/images/character/prismatic3.png"));
+        panels.add(new CutscenePanel("forgottenmod/images/character/prismatic3.png"));
         return panels;
     }
 
@@ -239,6 +233,6 @@ public class TheMemoryMan extends CustomPlayer {
     @Override
     public AbstractPlayer newInstance() {
         //Makes a new instance of your character class.
-        return new TheMemoryMan();
+        return new TheForgotten();
     }
 }

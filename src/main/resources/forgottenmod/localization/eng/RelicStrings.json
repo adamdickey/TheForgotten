@@ -1,0 +1,9 @@
+{
+  "${modID}:Sentimental Locket": {
+    "NAME": "Sentimental Locket",
+    "FLAVOR": "The locket helps you remember your mission.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, add a #yMemory into your hand."
+    ]
+  }
+}

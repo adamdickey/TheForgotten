@@ -1,7 +1,7 @@
-package memorymod.powers;
+package forgottenmod.powers;
 
-import memorymod.util.GeneralUtils;
-import memorymod.util.TextureLoader;
+import forgottenmod.util.GeneralUtils;
+import forgottenmod.util.TextureLoader;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.core.AbstractCreature;
