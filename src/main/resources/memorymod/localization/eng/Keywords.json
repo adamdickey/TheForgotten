@@ -1,0 +1,12 @@
+[
+  {
+    "PROPER_NAME": "Target",
+    "NAMES": [
+      "target",
+      "Target",
+      "Targeted",
+      "targeted"
+    ],
+    "DESCRIPTION": "Targeted creatures take #b50% more damage from non-Attack sources."
+  }
+  ]
