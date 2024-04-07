@@ -2,5 +2,27 @@
   "${modID}:Memory": {
     "NAME": "Memory",
     "DESCRIPTION": "Retain. NL Discard up to !M! cards. NL Draw that many cards next turn. NL Exhaust."
+  },
+  "${modID}:Dual Claw": {
+    "NAME": "Dual Claw",
+    "DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Dual Claw cards by !M! this combat. NL ${modID}:Echo."
+  },
+  "${modID}:Dizzying Strike": {
+    "NAME": "Dizzying Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Add !M! Dazed to your hand."
+  },
+  "${modID}:Omnipotent Form": {
+    "NAME": "Omnipotent Form",
+    "DESCRIPTION": "Ethereal. NL At the start of your turn, gain [E] [E] [E].",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, gain [E] [E] [E]."
+  },
+  "${modID}:Forget": {
+    "NAME": "Forget",
+    "DESCRIPTION": "Discard 1 card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust 1 card. NL Exhaust."
+  },
+  "${modID}:Forget the Pain": {
+    "NAME": "Forget the Pain",
+    "DESCRIPTION": "Add a Wound and a Forget to your hand. NL Gain !B! Block."
   }
 }

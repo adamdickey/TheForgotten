@@ -216,7 +216,7 @@ public class BasicMod implements
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new TheForgotten(),
-                CHAR_SELECT_BUTTON, CHAR_SELECT_PORTRAIT, MemoryMan);
+                CHAR_SELECT_BUTTON, CHAR_SELECT_PORTRAIT, TheForgotten);
     }
 
     @Override

@@ -1,12 +1,12 @@
 [
   {
-    "PROPER_NAME": "Target",
+    "PROPER_NAME": "Echo",
     "NAMES": [
-      "target",
-      "Target",
-      "Targeted",
-      "targeted"
+      "Echo",
+      "echo",
+      "Echoes",
+      "echoes"
     ],
-    "DESCRIPTION": "Targeted creatures take #b50% more damage from non-Attack sources."
+    "DESCRIPTION": "When a card with Echo is drawn, create a copy of it with Ethereal and Exhaust."
   }
   ]

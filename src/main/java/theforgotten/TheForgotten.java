@@ -44,7 +44,7 @@ public class TheForgotten extends CustomPlayer {
     public static final int ORB_SLOTS = 0;
 
     //Strings
-    private static final String ID = makeID("MemoryMan"); //This should match whatever you have in the CharacterStrings.json file
+    private static final String ID = makeID("TheForgotten"); //This should match whatever you have in the CharacterStrings.json file
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     private static final String[] NAMES = characterStrings.NAMES;
     private static final String[] TEXT = characterStrings.TEXT;
@@ -70,7 +70,7 @@ public class TheForgotten extends CustomPlayer {
         //These are used to identify your character, as well as your character's card color.
         //Library color is basically the same as card color, but you need both because that's how the game was made.
         @SpireEnum
-        public static AbstractPlayer.PlayerClass MemoryMan;
+        public static AbstractPlayer.PlayerClass TheForgotten;
         @SpireEnum(name = "CHARACTER_WHITE_COLOR") // These two MUST match. Change it to something unique for your character.
         public static AbstractCard.CardColor CARD_COLOR;
         @SpireEnum(name = "CHARACTER_WHITE_COLOR") @SuppressWarnings("unused")
@@ -82,7 +82,7 @@ public class TheForgotten extends CustomPlayer {
     }
 
     public TheForgotten() {
-        super(NAMES[0], MemoryMan,
+        super(NAMES[0], TheForgotten,
                 new CustomEnergyOrb(orbPath, orbVfxPath, null), //Energy OrbSlot
                 new SpineAnimation(characterPath("animation/skeleton.atlas"), characterPath( "animation/skeleton.json"), 1f));
         AnimationState.TrackEntry e = state.setAnimation(0, "idle", true);
