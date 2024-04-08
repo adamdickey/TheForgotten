@@ -5,5 +5,20 @@
       "At the start of your turn, gain ",
       ""
     ]
+  },
+  "${modID}:Memory Palace": {
+    "NAME": "Memory Palace",
+    "DESCRIPTIONS": [
+      "Whenever you create a card during combat, gain #b",
+      " #yBlock."
+    ]
+  },
+  "${modID}:Draw Reduction": {
+    "NAME": "Draw Reduction",
+    "DESCRIPTIONS": [
+      "Draw #b1 less card next turn.",
+      "Draw #b",
+      " fewer cards next turn."
+    ]
   }
 }

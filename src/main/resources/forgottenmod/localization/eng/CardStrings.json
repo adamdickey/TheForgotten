@@ -24,5 +24,26 @@
   "${modID}:Forget the Pain": {
     "NAME": "Forget the Pain",
     "DESCRIPTION": "Add a Wound and a Forget to your hand. NL Gain !B! Block."
+  },
+  "${modID}:Well-Laid Plans": {
+    "NAME": "Well-Laid Plans",
+    "DESCRIPTION": "At the end of your turn, Retain up to !M! card.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn, Retain up to !M! cards."
+  },
+  "${modID}:Memory Palace": {
+    "NAME": "Memory Palace",
+    "DESCRIPTION": "Whenever you create a card during combat, gain !M! Block."
+  },
+  "${modID}:Extra Turn Spell": {
+    "NAME": "Extra Turn Spell",
+    "DESCRIPTION": "Take an extra turn after this one. NL Draw 2 fewer cards at the start of that turn. NL End the turn. NL Exhaust."
+  },
+  "${modID}:Common Echo Attack": {
+    "NAME": "Common Echo Attack",
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Echo."
+  },
+  "${modID}:Common Echo Defend": {
+    "NAME": "Common Echo Defend",
+    "DESCRIPTION": "Gain !B! Block. NL ${modID}:Echo."
   }
 }
