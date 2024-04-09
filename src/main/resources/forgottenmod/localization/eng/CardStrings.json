@@ -45,5 +45,21 @@
   "${modID}:Common Echo Defend": {
     "NAME": "Common Echo Defend",
     "DESCRIPTION": "Gain !B! Block. NL ${modID}:Echo."
+  },
+  "${modID}:Spirit Shield Attack": {
+    "NAME": "Spirit Shield Attack",
+    "DESCRIPTION": "Deal !D! damage for each Attack card in your hand. Gain !B! Block for each non-Attack card in your hand."
+  },
+  "${modID}:Fatal Doubling Attack": {
+    "NAME": "Fatal Doubling Attack",
+    "DESCRIPTION": "Deal !D! damage. NL If Fatal, put a copy of this in your hand and double its damage. NL Exhaust."
+  },
+  "${modID}:Hand Copying Skill": {
+    "NAME": "Hand Copying Skill",
+    "DESCRIPTION": "Discard your hand. NL Add a copy of each card discarded this way to your hand. NL Exhaust."
+  },
+  "${modID}:Hand Damage Power": {
+    "NAME": "Hand Damage Power",
+    "DESCRIPTION": "At the end of your turn, deal !M! damage to ALL enemies for each card in your hand."
   }
 }

@@ -20,5 +20,12 @@
       "Draw #b",
       " fewer cards next turn."
     ]
+  },
+  "${modID}:Hand Damage Power": {
+    "NAME": "Hand Damage Power",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal #b",
+      " damage to ALL enemies for each card in your hand."
+    ]
   }
 }
