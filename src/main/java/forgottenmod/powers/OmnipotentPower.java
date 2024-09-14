@@ -12,6 +12,7 @@ public class OmnipotentPower extends BasePower {
     public OmnipotentPower(int amount) {
         super(ID, PowerType.BUFF, false, player, player, amount, true);
         this.amount = amount;
+        loadRegion("deva2");
     }
 
     public void updateDescription() {

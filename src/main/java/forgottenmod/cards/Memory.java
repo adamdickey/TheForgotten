@@ -47,6 +47,5 @@ public class Memory extends BaseCard {
                 addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, discardNum), discardNum, true));
             }
         },"Discard", false, true, true));
-
     }
 }

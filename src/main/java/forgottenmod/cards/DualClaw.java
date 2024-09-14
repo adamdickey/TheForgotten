@@ -24,8 +24,8 @@ public class DualClaw extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public DualClaw() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseDamage = 3;
-        int UPG_Damage = 2;
+        int baseDamage = 1;
+        int UPG_Damage = 1;
         int baseMagicNumber = 1;
         int UPG_Number = 0;
         setDamage(baseDamage, UPG_Damage);

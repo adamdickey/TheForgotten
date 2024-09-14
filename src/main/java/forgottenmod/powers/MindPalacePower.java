@@ -7,11 +7,12 @@ import com.evacipated.cardcrawl.mod.stslib.patches.bothInterfaces.OnCreateCardIn
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
 
-public class MemoryPalacePower extends BasePower implements OnCreateCardInterface {
+public class MindPalacePower extends BasePower implements OnCreateCardInterface {
 
-    public static final String ID = makeID("Memory Palace");
-    public MemoryPalacePower(int amount) {
+    public static final String ID = makeID("Mind Palace");
+    public MindPalacePower(int amount) {
         super(ID, PowerType.BUFF, false, player, player, amount, true);
+        loadRegion("mental_fortress");
     }
 
     public void updateDescription() {

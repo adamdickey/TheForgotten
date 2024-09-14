@@ -5,11 +5,11 @@
   },
   "${modID}:Dual Claw": {
     "NAME": "Dual Claw",
-    "DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Dual Claw cards by !M! this combat. NL ${modID}:Echo."
+    "DESCRIPTION": "${modID}:Echo. NL Deal !D! damage. NL Increase the damage of ALL Dual Claw cards by !M! this combat."
   },
   "${modID}:Dizzying Strike": {
     "NAME": "Dizzying Strike",
-    "DESCRIPTION": "Deal !D! damage. NL Add !M! Dazed to your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Add !M! *Dazed to your hand."
   },
   "${modID}:Omnipotent Form": {
     "NAME": "Omnipotent Form",
@@ -19,7 +19,7 @@
   "${modID}:Forget": {
     "NAME": "Forget",
     "DESCRIPTION": "Discard 1 card. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Exhaust 1 card. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Discard up to 1 card. NL Exhaust."
   },
   "${modID}:Forget the Pain": {
     "NAME": "Forget the Pain",
@@ -30,8 +30,8 @@
     "DESCRIPTION": "At the end of your turn, Retain up to !M! card.",
     "UPGRADE_DESCRIPTION": "At the end of your turn, Retain up to !M! cards."
   },
-  "${modID}:Memory Palace": {
-    "NAME": "Memory Palace",
+  "${modID}:Mind Palace": {
+    "NAME": "Mind Palace",
     "DESCRIPTION": "Whenever you create a card during combat, gain !M! Block."
   },
   "${modID}:Extra Turn Spell": {
@@ -40,11 +40,11 @@
   },
   "${modID}:Common Echo Attack": {
     "NAME": "Common Echo Attack",
-    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Echo."
+    "DESCRIPTION": "${modID}:Echo. NL Deal !D! damage."
   },
   "${modID}:Common Echo Defend": {
     "NAME": "Common Echo Defend",
-    "DESCRIPTION": "Gain !B! Block. NL ${modID}:Echo."
+    "DESCRIPTION": "${modID}:Echo. NL Gain !B! Block."
   },
   "${modID}:Spirit Shield Attack": {
     "NAME": "Spirit Shield Attack",
@@ -61,5 +61,312 @@
   "${modID}:Hand Damage Power": {
     "NAME": "Hand Damage Power",
     "DESCRIPTION": "At the end of your turn, deal !M! damage to ALL enemies for each card in your hand."
+  },
+  "${modID}:Create Vuln Attack": {
+    "NAME": "Create Vuln Attack",
+    "DESCRIPTION": "Deal !D! damage. NL If you have created a card this turn, apply !M! Vulnerable."
+  },
+  "${modID}:Forget Attack": {
+    "NAME": "Forget Attack",
+    "DESCRIPTION": "Deal !D! damage. NL Add a Forget to your hand."
+  },
+  "${modID}:Discardable Attack": {
+    "NAME": "Discardable Attack",
+    "DESCRIPTION": "Deal !D! damage. NL If this card is discarded, deal !D! damage to a random enemy."
+  },
+  "${modID}:Storage Attack": {
+    "NAME": "Storage Attack",
+    "DESCRIPTION": "Deal !D! damage. NL If your hand is not empty, ${modID}:Store this card."
+  },
+  "${modID}:Brainstorm": {
+    "NAME": "Brainstorm",
+    "DESCRIPTION": "If your hand is not empty, ${modID}:Store this card. NL Draw !M! cards."
+  },
+  "${modID}:Empty Double Attack": {
+    "NAME": "Empty Double Attack",
+    "DESCRIPTION": "Deal !D! damage. NL If you have 1 or fewer other cards in hand, deal !D! damage again."
+  },
+  "${modID}:Discard AOE Attack": {
+    "NAME": "Discard AOE Attack",
+    "DESCRIPTION": "Discard 1 card. NL Deal !D! damage to ALL enemies a number of times equal to its cost."
+  },
+  "${modID}:AOE Draw Attack": {
+    "NAME": "AOE Draw Attack",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Next turn, draw 1 additional card."
+  },
+  "${modID}:Memory Attack": {
+    "NAME": "Memory Attack",
+    "DESCRIPTION": "Deal !D! damage. NL Add a Memory into your hand."
+  },
+  "${modID}:Discardable Defend": {
+    "NAME": "Discardable Defend",
+    "DESCRIPTION": "Gain !B! Block. NL If this card is discarded, gain !B! Block."
+  },
+  "${modID}:Forget Defend": {
+    "NAME": "Forget Defend",
+    "DESCRIPTION": "Gain !B! Block. NL Add a Forget to your hand."
+  },
+  "${modID}:Card Storing Defend": {
+    "NAME": "Card Storing Defend",
+    "DESCRIPTION": "Gain !B! Block. NL A random card in your hand is ${modID}:Stored.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Choose a card in your hand and ${modID}:Store it."
+  },
+  "${modID}:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "${modID}:Starting Attack": {
+    "NAME": "Starting Attack",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !${modID}:Magic! less damage for each card in your hand."
+  },
+  "${modID}:Starting Defend": {
+    "NAME": "Starting Defend",
+    "DESCRIPTION": "Gain Block equal to the number of cards in your hand +2.",
+    "UPGRADE_DESCRIPTION": "Gain Block equal to the number of cards in your hand +5.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gains !B! Block.)"
+    ]
+  },
+  "${modID}:Storage Hologram": {
+    "NAME": "Storage Hologram",
+    "DESCRIPTION": "Choose a card in your discard pile and ${modID}:Store it."
+  },
+  "${modID}:Retain Defend": {
+    "NAME": "Retain Defend",
+    "DESCRIPTION": "Gain !B! Block. NL At the end of this turn, Retain up to 1 card."
+  },
+  "${modID}:Temp Strength": {
+    "NAME": "Temp Strength",
+    "DESCRIPTION": "Gain temporary Strength equal to the number of cards in your hand.",
+    "UPGRADE_DESCRIPTION": "Gain temporary Strength equal to the number of cards in your hand +2.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (!M! cards in hand.)"
+    ]
+  },
+  "${modID}:Discard Recur Attack": {
+    "NAME": "Discard Recur Attack",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you discard a card, return this from the discard pile to your hand."
+  },
+  "${modID}:Create Cheap Power": {
+    "NAME": "Create Cheap Power",
+    "DESCRIPTION": "Whenever you create a card, reduce its cost by 1 this turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you create a card, reduce its cost by 1 this turn."
+  },
+  "${modID}:Overflow": {
+    "NAME": "Overflow",
+    "DESCRIPTION": "Whenever you draw a card while your hand is full, play that card.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you draw a card while your hand is full, play that card."
+  },
+  "${modID}:Create Reduce Cost": {
+    "NAME": "Create Reduce Cost",
+    "DESCRIPTION": "${modID}:Echo. NL Costs 1 less [E] for each card created this turn. NL Deal !D! damage."
+  },
+  "${modID}:Windmill Strike": {
+    "NAME": "Windmill Strike",
+    "DESCRIPTION": "Retain. NL Deal !D! damage. NL When Retained, increase its damage by !M! this combat for each card Retained."
+  },
+  "${modID}:Create Cycle Attack": {
+    "NAME": "Create Cycle Attack",
+    "DESCRIPTION": "Deal !D! damage. NL If you have created a card this turn, draw 1 card."
+  },
+  "${modID}:Five Card Scrape": {
+    "NAME": "Five Card Scrape",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Discard cards until you have 5 cards in hand."
+  },
+  "${modID}:Reorganize": {
+    "NAME": "Reorganize",
+    "DESCRIPTION": "${modID}:Echo. NL Draw !M! card. NL If this card is discarded or put into ${modID}:Storage, draw 1 card.",
+    "UPGRADE_DESCRIPTION": "${modID}:Echo. NL Draw !M! cards. NL If this card is discarded or put into ${modID}:Storage, draw 1 card."
+  },
+  "${modID}:Unburden": {
+    "NAME": "Unburden",
+    "DESCRIPTION": "Discard up to 3 cards. NL Gain [E] for each card beyond the first discarded.",
+    "UPGRADE_DESCRIPTION": "Discard up to 3 cards. NL Gain [E] for each card discarded."
+  },
+  "${modID}:Expertise": {
+    "NAME": "Expertise",
+    "DESCRIPTION": "Draw cards until you have !M! cards in hand."
+  },
+  "${modID}:Energy Storage": {
+    "NAME": "Energy Storage",
+    "DESCRIPTION": "Gain [E] [E] . NL If your hand is not empty, ${modID}:Store this card."
+  },
+  "${modID}:Reiterate": {
+    "NAME": "Reiterate",
+    "DESCRIPTION": "Create a copy of a card in your hand. NL It gains Retain. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Create a copy of a card in your hand. NL It gains Retain."
+  },
+  "${modID}:Unceasing Top": {
+    "NAME": "Unceasing Top",
+    "DESCRIPTION": "Whenever your hand is empty during your turn, draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever your hand is empty during your turn, draw 1 card."
+  },
+  "${modID}:Evolve": {
+    "NAME": "Evolve",
+    "DESCRIPTION": "Whenever you draw a Status card, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Whenever you draw a Status card, draw !M! cards."
+  },
+  "${modID}:Recollect": {
+    "NAME": "Recollect",
+    "DESCRIPTION": "Play a copy of each ${modID}:Stored card."
+  },
+  "${modID}:Double Strike": {
+    "NAME": "Double Strike",
+    "DESCRIPTION": "${modID}:Echo. NL Deal !D! damage. NL This card's ${modID}:Echoes cost 0 this turn."
+  },
+  "${modID}:Store Strength": {
+    "NAME": "Store Strength",
+    "DESCRIPTION": "${modID}:Store this card. NL When this card leaves ${modID}:Storage, Exhaust it and gain !M! Strength."
+  },
+  "${modID}:Draw Until Attack": {
+    "NAME": "Draw Until Attack",
+    "DESCRIPTION": "Draw cards until you draw an Attack. NL ${modID}:Store that card.",
+    "UPGRADE_DESCRIPTION": "Draw cards until you draw an Attack."
+  },
+  "${modID}:Draw Statuses": {
+    "NAME": "Draw Statuses",
+    "DESCRIPTION": "Deal !D! damage. NL Put !M! random Status cards from your draw pile into your hand."
+  },
+  "${modID}:Retain Hand": {
+    "NAME": "Retain Hand",
+    "DESCRIPTION": "Gain !M! Block for each card in your hand. NL Retain your hand this turn.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Gain !B! Block.)"
+    ]
+  },
+  "${modID}:Retain Energy": {
+    "NAME": "Retain Energy",
+    "DESCRIPTION": "Unplayable. Retain. NL When you draw this card, gain [E] .",
+    "UPGRADE_DESCRIPTION": "Unplayable. Retain. NL When you draw this card, gain [E] [E] .",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card."
+    ]
+  },
+  "${modID}:Rare Echo Attack": {
+    "NAME": "Rare Echo Attack",
+    "DESCRIPTION": "${modID}:Echo. ${modID}:Echo. ${modID}:Echo. NL Deal !D! damage."
+  },
+  "${modID}:Master Reality": {
+    "NAME": "Master Reality",
+    "DESCRIPTION": "Whenever a card is created during combat, Upgrade it."
+  },
+  "${modID}:Damage Per Card": {
+    "NAME": "Damage Per Card",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !${modID}:Magic! additional damage for each card drawn this turn."
+  },
+  "${modID}:Shield Dance": {
+    "NAME": "Shield Dance",
+    "DESCRIPTION": "Add !M! *Shields into your hand.",
+    "UPGRADE_DESCRIPTION": "Add !M! *Shields+ into your hand."
+  },
+  "${modID}:Shield": {
+    "NAME": "Shield",
+    "DESCRIPTION": "Gain !B! Block. NL Exhaust."
+  },
+  "${modID}:Exhaust Dexterity": {
+    "NAME": "Exhaust Dexterity",
+    "DESCRIPTION": "Unplayable, Retain. NL When your hand is full, Exhaust this and gain !M! Dexterity.",
+    "EXTENDED_DESCRIPTION": [
+      "I can't play this card."
+    ]
+  },
+  "${modID}:Locking Draw": {
+    "NAME": "Locking Draw",
+    "DESCRIPTION": "Draw 4 cards and choose !M!. You cannot play the others this turn."
+  },
+  "${modID}:Discard Damage": {
+    "NAME": "Discard Damage",
+    "DESCRIPTION": "Deal !D! damage. NL Discard 2 cards. NL Deal !M! additional damage for each card discarded."
+  },
+  "${modID}:Amnesia": {
+    "NAME": "Amnesia",
+    "DESCRIPTION": "At the start of each turn, add a *Forget into your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, add a *Forget into your hand."
+  },
+  "${modID}:Discard Power": {
+    "NAME": "Discard Power",
+    "DESCRIPTION": "Whenever you discard a card, deal !M! damage to ALL enemies and gain !M! Block."
+  },
+  "${modID}:Rare Store Attack": {
+    "NAME": "Rare Store Attack",
+    "DESCRIPTION": "If you have no other cards in hand, deal !D! damage. NL Otherwise, ${modID}:Store this card."
+  },
+  "${modID}:Act on Impulse": {
+    "NAME": "Act on Impulse",
+    "DESCRIPTION": "Deal !D! damage. NL Discard 1 card."
+  },
+  "${modID}:Plan Ahead": {
+    "NAME": "Plan Ahead",
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, draw 1 additional card."
+  },
+  "${modID}:Empty Strength Power": {
+    "NAME": "Empty Strength Power",
+    "DESCRIPTION": "While you have 2 or fewer cards in hand, you have !M! additional Strength."
+  },
+  "${modID}:Damage Per Created": {
+    "NAME": "Damage Per Created",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deals !${modID}:Magic! additional damage for each card created this combat."
+  },
+  "${modID}:Discard Hand Attack": {
+    "NAME": "Discard Hand Attack",
+    "DESCRIPTION": "Discard your hand. NL Deal !D! damage for each card discarded this way."
+  },
+  "${modID}:Hand Size Increase": {
+    "NAME": "Hand Size Increase",
+    "DESCRIPTION": "Increase your maximum hand size by !M! this combat. NL Draw !M! cards. NL Exhaust."
+  },
+  "${modID}:Hand Full Defend": {
+    "NAME": "Hand Full Defend",
+    "DESCRIPTION": "Retain. NL Can only be played if your hand is full. NL Gain !B! Block.",
+    "EXTENDED_DESCRIPTION": [
+      "My #rHand is not #rFull!"
+    ]
+  },
+  "${modID}:Echo Power": {
+    "NAME": "Echo Power",
+    "DESCRIPTION": "The first card you draw each turn has ${modID}:Echo.",
+    "UPGRADE_DESCRIPTION": "The first 2 cards you draw each turn have ${modID}:Echo."
+  },
+  "${modID}:Extra Draw": {
+    "NAME": "Extra Draw",
+    "DESCRIPTION": "Draw !M! additional cards each turn. NL At the end of your turn, take 1 damage for each card in your hand."
+  },
+  "${modID}:Super Gamble": {
+    "NAME": "Super Gamble",
+    "DESCRIPTION": "Discard your hand, then draw that many cards plus !M!."
+  },
+  "${modID}:Mind Control": {
+    "NAME": "Mind Control",
+    "DESCRIPTION": "${modID}:Echo. NL ALL enemies lose 2 Strength. NL Exhaust."
+  },
+  "${modID}:Strike Hand": {
+    "NAME": "Strike Hand",
+    "DESCRIPTION": "Fill your hand with ${modID}:Echoes of Strikes.",
+    "UPGRADE_DESCRIPTION": "Fill your hand with ${modID}:Echoes of upgraded Strikes."
+  },
+  "${modID}:Scrawl 2": {
+    "NAME": "Scrawl 2",
+    "DESCRIPTION": "Draw 10 cards."
+  },
+  "${modID}:X Discard": {
+    "NAME": "X Discard",
+    "DESCRIPTION": "Discard X cards. NL Gain [E] for each card discarded. NL Draw X additional cards next turn.",
+    "UPGRADE_DESCRIPTION": "Discard X+1 cards. NL Gain [E] for each card discarded. NL Draw X+1 additional cards next turn."
+  },
+  "${modID}:Return Discard Draw": {
+    "NAME": "Return Discard Draw",
+    "DESCRIPTION": "Put a card from your draw pile and a card from your discard pile into your hand."
+  },
+  "${modID}:Store Next Card": {
+    "NAME": "Store Next Card",
+    "DESCRIPTION": "Deal !D! damage. NL The next card you play this turn is Stored."
+  },
+  "${modID}:Full Weak Attack": {
+    "NAME": "Full Weak Attack",
+    "DESCRIPTION": "Deal !D! damage. If you have 6 or more cards in hand, apply !M! Weak."
   }
 }

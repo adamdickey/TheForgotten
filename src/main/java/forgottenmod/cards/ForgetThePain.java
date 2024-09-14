@@ -22,7 +22,7 @@ public class ForgetThePain extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public ForgetThePain() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseBlock = 14;
+        int baseBlock = 12;
         int UPG_Block = 4;
         setBlock(baseBlock, UPG_Block);
         this.cardsToPreview = new Forget();

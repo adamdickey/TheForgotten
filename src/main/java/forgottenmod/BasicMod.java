@@ -5,7 +5,13 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomRelic;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.EvolvePower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import forgottenmod.powers.TrackerPower;
 import forgottenmod.util.GeneralUtils;
 import forgottenmod.util.KeywordInfo;
 import forgottenmod.util.TextureLoader;
@@ -28,6 +34,7 @@ import theforgotten.TheForgotten;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static theforgotten.TheForgotten.Enums.*;
 
 @SpireInitializer
@@ -37,7 +44,8 @@ public class BasicMod implements
         EditCharactersSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        PostInitializeSubscriber{
+        PostInitializeSubscriber,
+        OnStartBattleSubscriber{
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
@@ -57,6 +65,7 @@ public class BasicMod implements
     //red, green, blue, alpha. alpha is transparency, which should just be 1.
     private static final String CHAR_SELECT_BUTTON = characterPath("select/button.png");
     private static final String CHAR_SELECT_PORTRAIT = characterPath("select/portrait.png");
+    public static AbstractCard.CardTags isEcho;
 
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
@@ -246,5 +255,12 @@ public class BasicMod implements
                     BaseMod.addRelicToCustomPool(relic, CARD_COLOR);
                     UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        if(abstractRoom.phase == AbstractRoom.RoomPhase.COMBAT){
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new TrackerPower(player, 0)));
+        }
     }
 }

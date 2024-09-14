@@ -6,8 +6,8 @@
       ""
     ]
   },
-  "${modID}:Memory Palace": {
-    "NAME": "Memory Palace",
+  "${modID}:Mind Palace": {
+    "NAME": "Mind Palace",
     "DESCRIPTIONS": [
       "Whenever you create a card during combat, gain #b",
       " #yBlock."
@@ -26,6 +26,96 @@
     "DESCRIPTIONS": [
       "At the end of your turn, deal #b",
       " damage to ALL enemies for each card in your hand."
+    ]
+  },
+  "${modID}:Stored": {
+    "NAME": "Stored",
+    "DESCRIPTIONS": [
+      "When your hand is empty, ",
+      " is returned to your hand."
+    ]
+  },
+  "${modID}:Create Cheap Power": {
+    "NAME": "Create Cheap Power",
+    "DESCRIPTIONS": [
+      "Whenever you create a card, reduce its cost by #b",
+      " this turn."
+    ]
+  },
+  "${modID}:Unceasing Top": {
+    "NAME": "Unceasing Top",
+    "DESCRIPTIONS": [
+      "Whenever your hand is empty during your turn, draw #b",
+      " card.",
+      " cards."
+    ]
+  },
+  "${modID}:Amnesia": {
+    "NAME": "Amnesia",
+    "DESCRIPTIONS": [
+      "At the start of each turn, add a #yForget into your hand.",
+      "At the start of each turn, add #b",
+      " #yForgets into your hand."
+    ]
+  },
+  "${modID}:Discard Power": {
+    "NAME": "Discard Power",
+    "DESCRIPTIONS": [
+      "Whenever you discard a card, deal #b",
+      " damage to ALL enemies and gain #b",
+      " Block."
+    ]
+  },
+  "${modID}:Retain This Turn": {
+    "NAME": "Retain This Turn",
+    "DESCRIPTIONS": [
+      "At the end of this turn, you may retain #b",
+      " card.",
+      " cards."
+    ]
+  },
+  "${modID}:Empty Strength Power": {
+    "NAME": "Empty Strength Power",
+    "DESCRIPTIONS": [
+      "While you have #b2 or fewer cards in hand, you have #b",
+      " additional #yStrength."
+    ]
+  },
+  "${modID}:Hand Size Increase": {
+    "NAME": "Hand Size Increase",
+    "DESCRIPTIONS": [
+      "Your maximum hand size is increased by #b",
+      " this combat."
+    ]
+  },
+  "${modID}:Echo Power": {
+    "NAME": "Echo Power",
+    "DESCRIPTIONS": [
+      "The first card you draw each turn has #yEcho.",
+      "The first #b",
+      " cards you draw each turn have Echo."
+    ]
+  },
+  "${modID}:Extra Draw": {
+    "NAME": "Extra Draw",
+    "DESCRIPTIONS": [
+      "Draw #b",
+      " additional cards each turn."
+    ]
+  },
+  "${modID}:Hand Self Damage": {
+    "NAME": "Hand Self Damage",
+    "DESCRIPTIONS": [
+      "At the end of your turn, take #b",
+      " damage for each card in your hand."
+    ]
+  },
+  "${modID}:Store Next Card": {
+    "NAME": "Store Next Card",
+    "DESCRIPTIONS": [
+      "The next card you play this turn is #yStored.",
+      "The next #b",
+      " cards you play this turn are #yStored."
     ]
   }
 }

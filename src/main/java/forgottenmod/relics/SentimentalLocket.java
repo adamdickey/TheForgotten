@@ -2,10 +2,11 @@ package forgottenmod.relics;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import forgottenmod.BasicMod;
 import forgottenmod.cards.Memory;
 import theforgotten.TheForgotten;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 
 public class SentimentalLocket extends BaseRelic {
     private static final String NAME = "Sentimental Locket"; //The name will be used for determining the image file as well as the ID.
@@ -18,7 +19,7 @@ public class SentimentalLocket extends BaseRelic {
     }
     @Override
     public void atBattleStartPreDraw() {
-        addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        addToBot(new RelicAboveCreatureAction(player, this));
         addToBot(new MakeTempCardInHandAction(new Memory(), 1, false));
     }
     @Override

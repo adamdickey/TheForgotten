@@ -10,10 +10,6 @@ import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.blue.*;
-import com.megacrit.cardcrawl.cards.green.*;
-import com.megacrit.cardcrawl.cards.purple.*;
-import com.megacrit.cardcrawl.cards.red.*;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -23,8 +19,11 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.relics.PrismaticShard;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import forgottenmod.cards.ActOnImpulse;
+import forgottenmod.cards.Defend;
+import forgottenmod.cards.PlanAhead;
+import forgottenmod.cards.Strike;
 import forgottenmod.relics.SentimentalLocket;
 import forgottenmod.util.TextureLoader;
 
@@ -105,15 +104,16 @@ public class TheForgotten extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
-        retVal.add(Strike_Red.ID);
-        retVal.add(Strike_Green.ID);
-        retVal.add(Strike_Purple.ID);
-        retVal.add(Defend_Green.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Defend_Watcher.ID);
-        retVal.add(Bash.ID);
-        retVal.add(Survivor.ID);
-        retVal.add(Zap.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
+        retVal.add(ActOnImpulse.ID);
+        retVal.add(PlanAhead.ID);
         return retVal;
     }
 
@@ -122,13 +122,12 @@ public class TheForgotten extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
         retVal.add(SentimentalLocket.ID);
-        retVal.add(PrismaticShard.ID);
         return retVal;
     }
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Bash();
+        return new ActOnImpulse();
     }
 
     /*- Below this is methods that you should *probably* adjust, but don't have to. -*/
@@ -229,7 +228,6 @@ public class TheForgotten extends CustomPlayer {
     public AbstractCard.CardColor getCardColor() {
         return CARD_COLOR;
     }
-
     @Override
     public AbstractPlayer newInstance() {
         //Makes a new instance of your character class.

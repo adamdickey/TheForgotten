@@ -12,6 +12,7 @@ public class HandDamagePowerPower extends BasePower{
     public static final String ID = makeID("Hand Damage Power");
     public HandDamagePowerPower(int amount) {
         super(ID, PowerType.BUFF, false, player, player, amount, true);
+        loadRegion("combust");
     }
 
     public void updateDescription() {
@@ -20,8 +21,9 @@ public class HandDamagePowerPower extends BasePower{
 
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer){
         int cardsInHand = player.hand.size();
-        addToBot(new DamageAllEnemiesAction(null,
-
-                DamageInfo.createDamageMatrix(this.amount*cardsInHand, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
-    }
+        if(cardsInHand > 0){
+            addToBot(new DamageAllEnemiesAction(null,
+                    DamageInfo.createDamageMatrix(this.amount*cardsInHand, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+            }
+        }
 }

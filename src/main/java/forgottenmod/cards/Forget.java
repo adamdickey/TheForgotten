@@ -1,9 +1,12 @@
 package forgottenmod.cards;
 
+import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import forgottenmod.actions.HandSelectAction;
 import forgottenmod.util.CardStats;
 
 public class Forget extends BaseCard {
@@ -32,7 +35,15 @@ public class Forget extends BaseCard {
             addToBot(new DiscardAction(p, p, 1, false));
         }
         else {
-            addToBot(new ExhaustAction(magicNumber, false));
+            addToBot(new HandSelectAction(1, c -> true, list -> {
+
+            },list -> {
+                for (AbstractCard c : list) {
+                    AbstractDungeon.handCardSelectScreen.selectedCards.moveToDiscardPile(c);
+                    c.triggerOnManualDiscard();
+                    GameActionManager.incrementDiscard(false);
+                }
+            },"Discard", false, true, true));
         }
 
     }

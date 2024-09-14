@@ -6,6 +6,11 @@ import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import forgottenmod.cards.DoubleStrike;
+import forgottenmod.cards.DualClaw;
+
+import static forgottenmod.BasicMod.isEcho;
 
 public class EchoAction extends AbstractGameAction {
     private final AbstractCard card;
@@ -17,9 +22,21 @@ public class EchoAction extends AbstractGameAction {
     }
 
     public void update() {
+        if(AbstractDungeon.player.hand.size() == 10){
+            this.isDone = true;
+            return;
+        }
         AbstractCard echo = card.makeStatEquivalentCopy();
-        CardModifierManager.addModifier(echo, new ExhaustMod());
-        CardModifierManager.addModifier(echo, new EtherealMod());
+        if(!echo.isEthereal){
+            CardModifierManager.addModifier(echo, new EtherealMod());
+        }
+        if(!echo.exhaust){
+            CardModifierManager.addModifier(echo, new ExhaustMod());
+        }
+        if(card instanceof DualClaw){
+            echo.baseDamage = card.baseDamage;
+        }
+        echo.tags.add(isEcho);
         addToBot(new MakeTempCardInHandAction(echo, amount, false));
         this.isDone = true;
     }
