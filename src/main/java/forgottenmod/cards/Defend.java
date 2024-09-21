@@ -23,6 +23,7 @@ public class Defend extends BaseCard {
         int baseBlock = 5;
         int UPG_Block = 3;
         setBlock(baseBlock, UPG_Block);
+        this.tags.add(CardTags.STARTER_DEFEND);
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

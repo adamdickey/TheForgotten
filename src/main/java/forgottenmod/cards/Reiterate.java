@@ -43,6 +43,7 @@ public class Reiterate extends BaseCard {
             upgradeName();
             this.exhaust = false;
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            initializeDescription();
         }
     }
 }

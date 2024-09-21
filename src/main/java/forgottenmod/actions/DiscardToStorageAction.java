@@ -6,6 +6,9 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import forgottenmod.powers.StoredPower;
+
 import java.util.ArrayList;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
@@ -20,6 +23,15 @@ public class DiscardToStorageAction extends AbstractGameAction {
     }
 
     public void update() {
+        if(player.hasPower(StoredPower.ID)){
+            if(player.getPower(StoredPower.ID).amount == 3){
+                float dialogX = player.dialogX;
+                float dialogY = player.dialogY;
+                AbstractDungeon.effectList.add(new ThoughtBubble(dialogX, dialogY, 3.0F, "#rStorage #ris #rFull!", true));
+                this.isDone = true;
+                return;
+            }
+        }
         if (this.duration == this.startDuration) {
             if (player.discardPile.isEmpty()) {
                 this.isDone = true;
@@ -58,4 +70,5 @@ public class DiscardToStorageAction extends AbstractGameAction {
         }
         tickDuration();
     }
+
 }

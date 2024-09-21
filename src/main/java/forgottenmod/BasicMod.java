@@ -8,9 +8,10 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.EvolvePower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import forgottenmod.powers.CardsCreatedThisCombat;
+import forgottenmod.powers.CardsCreatedThisTurn;
 import forgottenmod.powers.TrackerPower;
 import forgottenmod.util.GeneralUtils;
 import forgottenmod.util.KeywordInfo;
@@ -66,6 +67,8 @@ public class BasicMod implements
     private static final String CHAR_SELECT_BUTTON = characterPath("select/button.png");
     private static final String CHAR_SELECT_PORTRAIT = characterPath("select/portrait.png");
     public static AbstractCard.CardTags isEcho;
+    public static AbstractCard.CardTags wasStored;
+    public static AbstractCard.CardTags hasRetain;
 
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
@@ -261,6 +264,8 @@ public class BasicMod implements
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         if(abstractRoom.phase == AbstractRoom.RoomPhase.COMBAT){
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new TrackerPower(player, 0)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new CardsCreatedThisTurn(player, 0)));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new CardsCreatedThisCombat(player, 0)));
         }
     }
 }

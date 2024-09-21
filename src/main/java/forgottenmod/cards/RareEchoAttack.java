@@ -9,6 +9,8 @@ import forgottenmod.actions.EchoAction;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
+import static forgottenmod.BasicMod.isEcho;
+
 public class RareEchoAttack extends BaseCard {
     public static final String ID = makeID("Rare Echo Attack"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(

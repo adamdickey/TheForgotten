@@ -62,8 +62,7 @@
     "NAME": "Discard Power",
     "DESCRIPTIONS": [
       "Whenever you discard a card, deal #b",
-      " damage to ALL enemies and gain #b",
-      " Block."
+      " damage to ALL enemies."
     ]
   },
   "${modID}:Retain This Turn": {
@@ -116,6 +115,12 @@
       "The next card you play this turn is #yStored.",
       "The next #b",
       " cards you play this turn are #yStored."
+    ]
+  },
+  "${modID}:Distress": {
+    "NAME": "Distress",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gains #b1 Distress for every #b5 Distress on the creature."
     ]
   }
 }

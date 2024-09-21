@@ -2,6 +2,7 @@ package forgottenmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import forgottenmod.powers.StoredPower;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
+import static forgottenmod.BasicMod.*;
 
 public class StoreOtherCardAction extends AbstractGameAction {
     private final AbstractCard card;
@@ -22,7 +24,8 @@ public class StoreOtherCardAction extends AbstractGameAction {
     }
 
     public void update() {
-        if(!handCanBeEmpty && player.hand.isEmpty()){
+        if(player.hand.isEmpty() && !player.hasPower(StoredPower.ID) && !card.hasTag(wasStored)){
+            addToBot(new ReturnToHandAction(card));
             this.isDone = true;
             return;
         }

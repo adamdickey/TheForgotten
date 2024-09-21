@@ -22,11 +22,12 @@ public class EchoAction extends AbstractGameAction {
     }
 
     public void update() {
-        if(AbstractDungeon.player.hand.size() == 10){
+        if(card.hasTag(isEcho)){
             this.isDone = true;
             return;
         }
         AbstractCard echo = card.makeStatEquivalentCopy();
+        CardModifierManager.addModifier(echo, new EchoModifier());
         if(!echo.isEthereal){
             CardModifierManager.addModifier(echo, new EtherealMod());
         }
@@ -36,7 +37,6 @@ public class EchoAction extends AbstractGameAction {
         if(card instanceof DualClaw){
             echo.baseDamage = card.baseDamage;
         }
-        echo.tags.add(isEcho);
         addToBot(new MakeTempCardInHandAction(echo, amount, false));
         this.isDone = true;
     }

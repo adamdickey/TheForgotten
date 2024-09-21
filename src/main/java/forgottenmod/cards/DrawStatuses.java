@@ -2,12 +2,17 @@ package forgottenmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.DrawPileToHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 
 public class DrawStatuses extends BaseCard {
     public static final String ID = makeID("Draw Statuses"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
@@ -34,6 +39,33 @@ public class DrawStatuses extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.NONE));
-        addToBot(new DrawPileToHandAction(magicNumber, CardType.STATUS));
+        cardsToHand(this.magicNumber);
+    }
+    public void cardsToHand(int amount){
+        ArrayList<AbstractCard> cards = new ArrayList<>();
+        for(AbstractCard c : player.drawPile.group){
+            if(c.type == CardType.STATUS || c.type == CardType.CURSE){
+                cards.add(c);
+            }
+        }
+        int handSize;
+        if(player.hasPower(HandSizeIncrease.ID)) {
+            handSize = 10 + player.getPower(HandSizeIncrease.ID).amount;
+        } else {
+            handSize = 10;
+        }
+        for(int i = 0; i < amount; i++){
+            if(!cards.isEmpty()){
+                Random rand = new Random();
+                AbstractCard cardToReturn = cards.get(rand.nextInt(cards.size()));
+                if (player.hand.size() == handSize) {
+                    player.drawPile.moveToDiscardPile(cardToReturn);
+                    player.createHandIsFullDialog();
+                    continue;
+                }
+                player.drawPile.moveToHand(cardToReturn, player.drawPile);
+                cards.remove(cardToReturn);
+            }
+        }
     }
 }

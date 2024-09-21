@@ -8,8 +8,11 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import forgottenmod.actions.EchoAction;
+import forgottenmod.powers.CardsCreatedThisTurn;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 
 public class CreateReduceCost extends BaseCard implements OnCreateCardInterface {
     public static final String ID = makeID("Create Reduce Cost"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
@@ -42,9 +45,19 @@ public class CreateReduceCost extends BaseCard implements OnCreateCardInterface 
         resetAttributes();
         applyPowers();
     }
+    public void applyPowers(){
+        super.applyPowers();
+        if(player.hasPower(CardsCreatedThisTurn.ID)){
+            if(player.getPower(CardsCreatedThisTurn.ID).amount > this.cost){
+                this.setCostForTurn(0);
+            } else {
+                this.setCostForTurn(this.cost - player.getPower(CardsCreatedThisTurn.ID).amount);
+            }
+        }
+    }
 
     @Override
     public void onCreateCard(AbstractCard abstractCard) {
-        setCostForTurn(this.costForTurn - 1);
+        this.applyPowers();
     }
 }

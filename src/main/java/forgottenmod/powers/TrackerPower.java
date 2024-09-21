@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import forgottenmod.cards.ExhaustDexterity;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
-import static forgottenmod.BasicMod.makeID;
+import static forgottenmod.BasicMod.*;
 
 public class TrackerPower extends BasePower implements InvisiblePower {
 
@@ -23,9 +23,16 @@ public class TrackerPower extends BasePower implements InvisiblePower {
     }
     public void onCardDraw(AbstractCard card) {
         this.amount++;
+        if(card.hasTag(wasStored)){
+            card.setCostForTurn(0);
+        }
     }
     public void onDrawOrDiscard(){
-        if(player.hand.size() == 10){
+        int handSize = 10;
+        if(player.hasPower(HandSizeIncreasePower.ID)){
+            handSize = 10 + player.getPower(HandSizeIncreasePower.ID).amount;
+        }
+        if(player.hand.size() == handSize){
             for(AbstractCard c : player.hand.group){
                 if(c instanceof ExhaustDexterity){
                     addToBot(new ApplyPowerAction(player, player, new DexterityPower(player, c.magicNumber)));

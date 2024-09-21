@@ -23,6 +23,7 @@ public class MindControl extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public MindControl() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
+        this.exhaust = true;
     }
     public void triggerWhenDrawn() {
         addToBot(new EchoAction(this, 1));

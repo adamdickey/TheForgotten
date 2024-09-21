@@ -76,11 +76,11 @@
   },
   "${modID}:Storage Attack": {
     "NAME": "Storage Attack",
-    "DESCRIPTION": "Deal !D! damage. NL If your hand is not empty, ${modID}:Store this card."
+    "DESCRIPTION": "Deal !D! damage. NL ${modID}:Store this card."
   },
   "${modID}:Brainstorm": {
     "NAME": "Brainstorm",
-    "DESCRIPTION": "If your hand is not empty, ${modID}:Store this card. NL Draw !M! cards."
+    "DESCRIPTION": "Draw !M! cards. NL ${modID}:Store this card."
   },
   "${modID}:Empty Double Attack": {
     "NAME": "Empty Double Attack",
@@ -193,7 +193,7 @@
   },
   "${modID}:Energy Storage": {
     "NAME": "Energy Storage",
-    "DESCRIPTION": "Gain [E] [E] . NL If your hand is not empty, ${modID}:Store this card."
+    "DESCRIPTION": "Gain [E] [E] . NL ${modID}:Store this card."
   },
   "${modID}:Reiterate": {
     "NAME": "Reiterate",
@@ -280,7 +280,7 @@
   },
   "${modID}:Discard Damage": {
     "NAME": "Discard Damage",
-    "DESCRIPTION": "Deal !D! damage. NL Discard 2 cards. NL Deal !M! additional damage for each card discarded."
+    "DESCRIPTION": "Deal !${modID}:Base! damage. NL Discard 2 cards. NL Deals !${modID}:Magic! additional damage for each card discarded."
   },
   "${modID}:Amnesia": {
     "NAME": "Amnesia",
@@ -289,7 +289,7 @@
   },
   "${modID}:Discard Power": {
     "NAME": "Discard Power",
-    "DESCRIPTION": "Whenever you discard a card, deal !M! damage to ALL enemies and gain !M! Block."
+    "DESCRIPTION": "Whenever you discard a card, deal !M! damage to ALL enemies."
   },
   "${modID}:Rare Store Attack": {
     "NAME": "Rare Store Attack",
@@ -301,7 +301,7 @@
   },
   "${modID}:Plan Ahead": {
     "NAME": "Plan Ahead",
-    "DESCRIPTION": "Gain !B! Block. NL Next turn, draw 1 additional card."
+    "DESCRIPTION": "Gain !B! Block. NL Next turn, draw !M! additional card."
   },
   "${modID}:Empty Strength Power": {
     "NAME": "Empty Strength Power",
@@ -309,7 +309,7 @@
   },
   "${modID}:Damage Per Created": {
     "NAME": "Damage Per Created",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deals !${modID}:Magic! additional damage for each card created this combat."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deals additional damage equal to the number of cards created this combat."
   },
   "${modID}:Discard Hand Attack": {
     "NAME": "Discard Hand Attack",
@@ -368,5 +368,9 @@
   "${modID}:Full Weak Attack": {
     "NAME": "Full Weak Attack",
     "DESCRIPTION": "Deal !D! damage. If you have 6 or more cards in hand, apply !M! Weak."
+  },
+  "${modID}:Instill Fear": {
+    "NAME": "Instill Fear",
+    "DESCRIPTION": "Apply !M! ${modID}:Distress. NL If the enemy has 30 or more ${modID}:Distress, ${modID}:Detonate it."
   }
 }

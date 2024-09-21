@@ -25,6 +25,8 @@ public class Strike extends BaseCard {
         int baseDamage = 6;
         int UPG_Damage = 3;
         setDamage(baseDamage, UPG_Damage);
+        this.tags.add(CardTags.STRIKE);
+        this.tags.add(CardTags.STARTER_STRIKE);
     }
 
     @Override

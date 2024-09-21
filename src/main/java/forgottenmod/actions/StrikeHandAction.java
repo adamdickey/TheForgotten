@@ -15,7 +15,7 @@ public class StrikeHandAction extends AbstractGameAction {
     }
 
     public void update() {
-        int maxHandSize = 0;
+        int maxHandSize;
         if(player.hasPower(HandSizeIncrease.ID)){
             maxHandSize = 10+player.getPower(HandSizeIncrease.ID).amount;
         } else {

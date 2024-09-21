@@ -30,9 +30,9 @@ public class DiscardDamage extends BaseCard {
         int baseDamage = 8;
         int UPG_Damage = 2;
         int baseMagicNumber = 3;
-        int UPG_Number = 2;
-        setDamage(baseDamage, UPG_Damage);
-        setMagic(baseMagicNumber, UPG_Number);
+        int UPG_Number = 1;
+        setCustomVar("Base", VariableType.DAMAGE, baseDamage, UPG_Damage);
+        setCustomVar("Magic", VariableType.DAMAGE, baseMagicNumber, UPG_Number);
     }
 
     @Override
@@ -46,7 +46,10 @@ public class DiscardDamage extends BaseCard {
                 GameActionManager.incrementDiscard(false);
                 cardsDiscarded++;
             }
-            addToBot(new DamageAction(m, new DamageInfo(p, damage+(cardsDiscarded*magicNumber), DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            addToBot(new DamageAction(m, new DamageInfo(p, customVar("Base"), DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            for(int i = 0; i < cardsDiscarded; i++){
+                addToBot(new DamageAction(m, new DamageInfo(p, customVar("Magic"), DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            }
         },"Discard", false, false, false));
 
     }

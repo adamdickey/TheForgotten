@@ -10,8 +10,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import forgottenmod.powers.CardsCreatedThisTurn;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 
 public class CreateVulnAttack extends BaseCard implements OnCreateCardInterface {
     public static final String ID = makeID("Create Vuln Attack"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
@@ -45,6 +48,14 @@ public class CreateVulnAttack extends BaseCard implements OnCreateCardInterface 
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.NONE));
         if(cardCreated){
             addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, magicNumber, false), magicNumber));
+        }
+    }
+    public void applyPowers(){
+        super.applyPowers();
+        if(player.hasPower(CardsCreatedThisTurn.ID)){
+            if(player.getPower(CardsCreatedThisTurn.ID).amount > 0){
+                cardCreated = true;
+            }
         }
     }
 

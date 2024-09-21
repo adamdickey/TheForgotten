@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import forgottenmod.actions.HandSelectAction;
 import forgottenmod.actions.StoreOtherCardAction;
+import forgottenmod.powers.StoredPower;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -32,17 +33,36 @@ public class CardStoringDefend extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        if(this.upgraded){
+        if(this.upgraded) {
+            if (p.hand.size() == 1) {
+                return;
+            }
+            else if (p.hand.size() == 2 && !player.hasPower(StoredPower.ID)) {
+                for (AbstractCard c : player.hand.group) {
+                    if (c != this) {
+                        c.setCostForTurn(0);
+                        return;
+                    }
+                }
+            }
             addToBot(new HandSelectAction(1, c -> true, list -> {
                 for (AbstractCard c : list) {
                     addToBot(new StoreOtherCardAction(c, true, player.hand));
                 }
                 list.clear();
-            }, null, "Store", false, false, false));
-        }
+                }, null, "Store", false, false, false));
+            }
         else{
             if(p.hand.size() == 1){
                 return;
+            }
+            else if(p.hand.size() == 2 && !player.hasPower(StoredPower.ID)){
+                for(AbstractCard c : player.hand.group){
+                    if(c != this){
+                        c.setCostForTurn(0);
+                        return;
+                    }
+                }
             }
             AbstractCard randomCard = player.hand.getRandomCard(true);
             while(randomCard == this){

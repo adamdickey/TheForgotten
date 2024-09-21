@@ -8,8 +8,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import forgottenmod.powers.CardsCreatedThisTurn;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 
 public class CreateCycleAttack extends BaseCard implements OnCreateCardInterface {
     public static final String ID = makeID("Create Cycle Attack"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
@@ -42,9 +45,18 @@ public class CreateCycleAttack extends BaseCard implements OnCreateCardInterface
             addToBot(new DrawCardAction(1));
         }
     }
+    public void applyPowers(){
+        super.applyPowers();
+        if(player.hasPower(CardsCreatedThisTurn.ID)){
+            if(player.getPower(CardsCreatedThisTurn.ID).amount > 0){
+                cardCreated = true;
+            }
+        }
+    }
     @Override
     public void onCreateCard(AbstractCard abstractCard) {
         cardCreated = true;
+        this.applyPowers();
     }
     public void triggerOnGlowCheck() {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();

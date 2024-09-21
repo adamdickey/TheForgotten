@@ -18,7 +18,7 @@ public class DiscardPowerPower extends BasePower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
     int cardsDiscarded = 0;
@@ -39,7 +39,6 @@ public class DiscardPowerPower extends BasePower {
             for(int i = 0; i < GameActionManager.totalDiscardedThisTurn - cardsDiscarded; i++){
                 flash();
                 addToBot(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(this.amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
-                addToBot(new GainBlockAction(player, this.amount));
             }
         }
         cardsDiscarded = GameActionManager.totalDiscardedThisTurn;
