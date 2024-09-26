@@ -35,7 +35,7 @@ public class Forget extends BaseCard {
             addToBot(new DiscardAction(p, p, 1, false));
         }
         else {
-            addToBot(new HandSelectAction(1, c -> true, list -> {
+            addToBot(new HandSelectAction(99, c -> true, list -> {
 
             },list -> {
                 for (AbstractCard c : list) {

@@ -24,7 +24,7 @@ public class FatalDoublingAttack extends BaseCard {
         int baseDamage = 14;
         int UPG_Damage = 4;
         setDamage(baseDamage, UPG_Damage);
-        this.exhaust = true;
+        this.selfRetain = true;
     }
 
     @Override

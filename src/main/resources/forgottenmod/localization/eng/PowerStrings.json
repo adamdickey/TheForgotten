@@ -35,11 +35,11 @@
       " is returned to your hand."
     ]
   },
-  "${modID}:Create Cheap Power": {
-    "NAME": "Create Cheap Power",
+  "${modID}:Staying Power": {
+    "NAME": "Staying Power",
     "DESCRIPTIONS": [
-      "Whenever you create a card, reduce its cost by #b",
-      " this turn."
+      "Whenever a card is #yRetained, increase its base damage and Block by #b",
+      "."
     ]
   },
   "${modID}:Unceasing Top": {
@@ -73,10 +73,10 @@
       " cards."
     ]
   },
-  "${modID}:Empty Strength Power": {
-    "NAME": "Empty Strength Power",
+  "${modID}:Last Stand": {
+    "NAME": "Last Stand",
     "DESCRIPTIONS": [
-      "While you have #b2 or fewer cards in hand, you have #b",
+      "While you have #b3 or fewer cards in hand, you have #b",
       " additional #yStrength."
     ]
   },
@@ -87,8 +87,8 @@
       " this combat."
     ]
   },
-  "${modID}:Echo Power": {
-    "NAME": "Echo Power",
+  "${modID}:Deja Vu": {
+    "NAME": "Deja Vu",
     "DESCRIPTIONS": [
       "The first card you draw each turn has #yEcho.",
       "The first #b",
@@ -121,6 +121,12 @@
     "NAME": "Distress",
     "DESCRIPTIONS": [
       "At the end of your turn, gains #b1 Distress for every #b5 Distress on the creature."
+    ]
+  },
+  "${modID}:Overflow": {
+    "NAME": "Overflow",
+    "DESCRIPTIONS": [
+      "Whenever your hand becomes full, play a random card in your hand."
     ]
   }
 }

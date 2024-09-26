@@ -1,7 +1,7 @@
 package forgottenmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -29,9 +29,8 @@ public class DoublingAction extends AbstractGameAction {
             this.target.damage(this.info);
             if (((this.target).isDying || this.target.currentHealth <= 0) && !this.target.halfDead &&
                     !this.target.hasPower("Minion")) {
-                AbstractCard echo = card.makeStatEquivalentCopy();
-                echo.baseDamage = card.baseDamage * 2;
-                addToBot(new MakeTempCardInHandAction(echo, false));
+                addToBot(new DiscardToHandAction(card));
+                card.baseDamage *= 2;
             }
             if ((AbstractDungeon.getCurrRoom()).monsters.areMonstersBasicallyDead())
                 AbstractDungeon.actionManager.clearPostCombatActions();

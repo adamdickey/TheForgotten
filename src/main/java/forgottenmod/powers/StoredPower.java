@@ -23,7 +23,6 @@ import forgottenmod.cards.*;
 import java.util.ArrayList;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
-import static forgottenmod.BasicMod.hasRetain;
 import static forgottenmod.BasicMod.makeID;
 
 public class StoredPower extends BasePower implements InvisiblePower {

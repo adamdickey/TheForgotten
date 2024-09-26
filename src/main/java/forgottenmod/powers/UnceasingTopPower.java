@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import forgottenmod.cards.DiscardHandAttack;
+import forgottenmod.cards.StoreStrength;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
@@ -27,15 +28,22 @@ public class UnceasingTopPower extends BasePower {
         }
     }
 
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        if ((player.hand.isEmpty() || card instanceof DiscardHandAttack) && !(player.hasPower(StoredPower.ID))) {
-            flash();
-            addToBot(new DrawCardAction(AbstractDungeon.player, this.amount));
-        }
+    //public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        //if ((player.hand.isEmpty() || card instanceof DiscardHandAttack) && !(player.hasPower(StoredPower.ID))) {
+            //flash();
+            //addToBot(new DrawCardAction(AbstractDungeon.player, this.amount));
+        //}
+    //}
+    public void onDrawOrDiscard(){
+        drawCard();
     }
-
-    public void onDrawOrDiscard() {
-        //drawCard();
+    public void onExhaust(AbstractCard card){
+        if (card instanceof StoreStrength && player.hand.size() == 1 &&
+                !AbstractDungeon.actionManager.turnHasEnded && !AbstractDungeon.player.hasPower("No Draw"))
+            if ((!AbstractDungeon.player.discardPile.isEmpty() || !AbstractDungeon.player.drawPile.isEmpty())) {
+                flash();
+                addToBot(new DrawCardAction(AbstractDungeon.player, this.amount));
+            }
     }
 
     public void drawCard() {

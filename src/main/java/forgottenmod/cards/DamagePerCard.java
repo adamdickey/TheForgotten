@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.powers.TrackerPower;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -41,24 +40,16 @@ public class DamagePerCard extends BaseCard {
     }
     public void applyPowers() {
         int realBaseDamage = this.baseDamage;
-        if(player.hasPower(TrackerPower.ID)){
-            baseMagicNumber = player.getPower(TrackerPower.ID).amount*customVar("Magic");
-        } else {
-            baseMagicNumber = 5*customVar("Magic");
-        }
-        this.baseDamage += this.baseMagicNumber;
+        baseMagicNumber = player.hand.size();
+        this.baseDamage += this.baseMagicNumber*customVar("Magic");
         super.applyPowers();
         this.baseDamage = realBaseDamage;
         this.isDamageModified = (this.damage != this.baseDamage);
     }
     public void calculateCardDamage(AbstractMonster mo) {
-        if(player.hasPower(TrackerPower.ID)){
-            baseMagicNumber = player.getPower(TrackerPower.ID).amount*customVar("Magic");
-        } else {
-            baseMagicNumber = 5*customVar("Magic");
-        }
         int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.baseMagicNumber;
+        baseMagicNumber = player.hand.size();
+        this.baseDamage += this.baseMagicNumber*customVar("Magic");
         super.calculateCardDamage(mo);
         this.baseDamage = realBaseDamage;
         this.isDamageModified = (this.damage != this.baseDamage);

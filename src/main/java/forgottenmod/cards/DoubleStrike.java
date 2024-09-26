@@ -24,8 +24,8 @@ public class DoubleStrike extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public DoubleStrike() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseDamage = 6;
-        int UPG_Damage = 3;
+        int baseDamage = 5;
+        int UPG_Damage = 2;
         setDamage(baseDamage, UPG_Damage);
     }
     public void triggerWhenDrawn() {

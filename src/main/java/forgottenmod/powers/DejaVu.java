@@ -6,10 +6,10 @@ import forgottenmod.actions.EchoAction;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
 
-public class EchoPowerPower extends BasePower {
+public class DejaVu extends BasePower {
 
-    public static final String ID = makeID("Echo Power");
-    public EchoPowerPower(int amount) {
+    public static final String ID = makeID("Deja Vu");
+    public DejaVu(int amount) {
         super(ID, PowerType.BUFF, false, player, player, amount, true);
         loadRegion("infiniteBlades");
     }

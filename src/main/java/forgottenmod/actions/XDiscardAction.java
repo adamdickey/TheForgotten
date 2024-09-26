@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
@@ -54,10 +53,11 @@ public class XDiscardAction extends AbstractGameAction {
                     cardsDiscarded++;
                 }
                 if(cardsDiscarded > 0){
-                    addToBot(new GainEnergyAction(cardsDiscarded));
                     if(this.upgraded){
-                        addToBot(new ApplyPowerAction(player, player, new DrawCardNextTurnPower(player, cardsDiscarded+1)));
+                        addToBot(new GainEnergyAction(2));
+                        addToBot(new ApplyPowerAction(player, player, new DrawCardNextTurnPower(player, cardsDiscarded)));
                     } else {
+                        addToBot(new GainEnergyAction(1));
                         addToBot(new ApplyPowerAction(player, player, new DrawCardNextTurnPower(player, cardsDiscarded)));
                     }
                 }

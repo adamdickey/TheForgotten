@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import forgottenmod.powers.StoredPower;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
-import static forgottenmod.BasicMod.hasRetain;
 import static forgottenmod.BasicMod.wasStored;
 
 public class StorageAction extends AbstractGameAction {

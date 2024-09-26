@@ -68,7 +68,6 @@ public class BasicMod implements
     private static final String CHAR_SELECT_PORTRAIT = characterPath("select/portrait.png");
     public static AbstractCard.CardTags isEcho;
     public static AbstractCard.CardTags wasStored;
-    public static AbstractCard.CardTags hasRetain;
 
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.

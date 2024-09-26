@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
 
-public class EmptyStrengthPowerPower extends BasePower {
+public class LastStandPower extends BasePower {
 
-    public static final String ID = makeID("Empty Strength Power");
-    public EmptyStrengthPowerPower(int amount) {
+    public static final String ID = makeID("Last Stand");
+    public LastStandPower(int amount) {
         super(ID, PowerType.BUFF, false, player, player, amount, true);
     }
 
@@ -25,7 +25,7 @@ public class EmptyStrengthPowerPower extends BasePower {
         checkCards(this.amount);
     }
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if(power instanceof EmptyStrengthPowerPower){
+        if(power instanceof LastStandPower){
             checkCards(this.amount + power.amount);
         }
     }
@@ -33,7 +33,7 @@ public class EmptyStrengthPowerPower extends BasePower {
         checkCards(this.amount);
     }
     public void checkCards(){
-        if(player.hand.size() <= 2){
+        if(player.hand.size() <= 3){
             if(!this.active){
                 //flash();
                 strengthAmount = this.amount;
@@ -49,7 +49,7 @@ public class EmptyStrengthPowerPower extends BasePower {
         }
     }
     public void checkCards(int powerAmount){
-        if(player.hand.size() <= 2){
+        if(player.hand.size() <= 3){
             if(!this.active){
                 //flash();
                 strengthAmount = powerAmount;

@@ -9,10 +9,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import com.megacrit.cardcrawl.powers.RetainCardPower;
 import com.megacrit.cardcrawl.relics.RunicPyramid;
+import forgottenmod.powers.RetainThisTurn;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
+import static forgottenmod.BasicMod.isEcho;
 
 
 public class WindmillStrike extends BaseCard {
@@ -47,11 +49,11 @@ public class WindmillStrike extends BaseCard {
     }
     public void triggerOnEndOfTurnForPlayingCard() {
         retained = true;
-        if(player.hasPower(RetainCardPower.POWER_ID) &&
+        if((player.hasPower(RetainCardPower.POWER_ID) || player.hasPower(RetainThisTurn.ID)) &&
                 !player.hasRelic(RunicPyramid.ID) && !player.hasPower(EquilibriumPower.POWER_ID)){
             cardsRetained = 0;
             for(AbstractCard c : player.hand.group) {
-                if ((c.selfRetain || c.retain) || (player.hasPower(EquilibriumPower.POWER_ID) && !c.isEthereal)) {
+                if ((c.selfRetain || c.retain) || (player.hasPower(EquilibriumPower.POWER_ID) && !c.isEthereal && !c.hasTag(isEcho))) {
                     upgradeDamage(magicNumber);
                     cardsRetained++;
                 }
