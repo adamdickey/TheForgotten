@@ -44,6 +44,9 @@ public class StoredPower extends BasePower implements InvisiblePower {
         if(player.hand.isEmpty()){
             this.onDrawOrDiscard();
         }
+        if(card instanceof Reorganize){
+            addToBot(new DrawCardAction(1));
+        }
     }
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer){
         endOfTurn = true;

@@ -42,8 +42,8 @@
       "."
     ]
   },
-  "${modID}:Unceasing Top": {
-    "NAME": "Unceasing Top",
+  "${modID}:Unceasing Ideas": {
+    "NAME": "Unceasing Ideas",
     "DESCRIPTIONS": [
       "Whenever your hand is empty during your turn, draw #b",
       " card.",
@@ -117,16 +117,23 @@
       " cards you play this turn are #yStored."
     ]
   },
-  "${modID}:Distress": {
-    "NAME": "Distress",
+  "${modID}:Trauma": {
+    "NAME": "Trauma",
     "DESCRIPTIONS": [
-      "At the end of your turn, gains #b1 Distress for every #b5 Distress on the creature."
-    ]
+      "At the start of its turn, gains #b1 #yTrauma for every #b",
+      " #yTrauma on it. When you apply #yTrauma to this enemy, #yAwaken it's #yTrauma."
+      ]
   },
   "${modID}:Overflow": {
     "NAME": "Overflow",
     "DESCRIPTIONS": [
       "Whenever your hand becomes full, play a random card in your hand."
+    ]
+  },
+  "${modID}:Unending Torment": {
+    "NAME": "Unending Torment",
+    "DESCRIPTIONS": [
+      "Awakening #yTrauma does not cause the enemy to lose their #yTrauma."
     ]
   }
 }

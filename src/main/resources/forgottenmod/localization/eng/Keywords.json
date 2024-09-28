@@ -21,18 +21,22 @@
     "DESCRIPTION": "Stored cards are returned to your hand when it is empty. Cards returned this way cost 0 this turn. Up to 3 cards can be stored at a time."
   },
   {
-    "PROPER_NAME": "Distress",
+    "PROPER_NAME": "Trauma",
     "NAMES": [
-      "distress"
+      "trauma"
     ],
-    "DESCRIPTION": "At the end of your turn, enemies gain 1 Distress for every 5 Distress they have."
+    "DESCRIPTION": "At the start of its turn, the enemy gains 1 Trauma for every 3 Trauma they have."
   },
   {
-    "PROPER_NAME": "Detonate",
+    "PROPER_NAME": "Awaken",
     "NAMES": [
-      "detonate"
+      "awaken",
+      "Awakening",
+      "awakening",
+      "Awoken",
+      "awoken"
     ],
-    "DESCRIPTION": "The enemy loses HP equal to their Distress, then loses all Distress."
+    "DESCRIPTION": "The enemy loses HP equal to their Trauma, then loses all Trauma."
   }
 
   ]

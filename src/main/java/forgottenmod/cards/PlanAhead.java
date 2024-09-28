@@ -22,8 +22,8 @@ public class PlanAhead extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public PlanAhead() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseBlock = 8;
-        int UPG_Block = 4;
+        int baseBlock = 9;
+        int UPG_Block = 3;
         int baseMagicNumber = 1;
         int UPG_Number = 0;
         setBlock(baseBlock, UPG_Block);

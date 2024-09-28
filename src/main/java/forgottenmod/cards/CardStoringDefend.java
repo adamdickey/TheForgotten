@@ -3,7 +3,9 @@ package forgottenmod.cards;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import forgottenmod.actions.HandSelectAction;
 import forgottenmod.actions.StoreOtherCardAction;
 import forgottenmod.powers.StoredPower;
@@ -43,6 +45,14 @@ public class CardStoringDefend extends BaseCard {
                         c.setCostForTurn(0);
                         return;
                     }
+                }
+            }
+            if(player.hasPower(StoredPower.ID)){
+                if(player.getPower(StoredPower.ID).amount == 3){
+                    float dialogX = player.dialogX;
+                    float dialogY = player.dialogY;
+                    AbstractDungeon.effectList.add(new ThoughtBubble(dialogX, dialogY, 3.0F, "#rStorage #ris #rFull!", true));
+                    return;
                 }
             }
             addToBot(new HandSelectAction(1, c -> true, list -> {

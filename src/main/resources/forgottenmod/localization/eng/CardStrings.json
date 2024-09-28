@@ -133,7 +133,7 @@
   },
   "${modID}:Storage Hologram": {
     "NAME": "Storage Hologram",
-    "DESCRIPTION": "Choose a card in your discard pile and ${modID}:Store it."
+    "DESCRIPTION": "Gain !M! Block. NL Choose a card in your discard pile and ${modID}:Store it."
   },
   "${modID}:Retain Defend": {
     "NAME": "Retain Defend",
@@ -178,8 +178,7 @@
   },
   "${modID}:Reorganize": {
     "NAME": "Reorganize",
-    "DESCRIPTION": "${modID}:Echo. NL Draw !M! card. NL If this card is discarded or put into ${modID}:Storage, draw 1 card.",
-    "UPGRADE_DESCRIPTION": "${modID}:Echo. NL Draw !M! cards. NL If this card is discarded or put into ${modID}:Storage, draw 1 card."
+    "DESCRIPTION": "Draw !M! cards. NL If this card is discarded or put into ${modID}:Storage, draw 1 card."
   },
   "${modID}:Unburden": {
     "NAME": "Unburden",
@@ -199,8 +198,8 @@
     "DESCRIPTION": "Create a copy of a card in your hand. NL It gains Retain. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Create a copy of a card in your hand. NL It gains Retain."
   },
-  "${modID}:Unceasing Top": {
-    "NAME": "Unceasing Top",
+  "${modID}:Unceasing Ideas": {
+    "NAME": "Unceasing Ideas",
     "DESCRIPTION": "Whenever your hand is empty during your turn, draw 1 card.",
     "UPGRADE_DESCRIPTION": "Innate. NL Whenever your hand is empty during your turn, draw 1 card."
   },
@@ -365,7 +364,7 @@
   },
   "${modID}:Instill Fear": {
     "NAME": "Instill Fear",
-    "DESCRIPTION": "Apply !M! ${modID}:Distress. NL If the enemy has 30 or more ${modID}:Distress, ${modID}:Detonate it."
+    "DESCRIPTION": "Apply !M! ${modID}:Trauma."
   },
   "${modID}:Staying Power": {
     "NAME": "Staying Power",
@@ -374,5 +373,34 @@
   "${modID}:Retain Ping Attack": {
     "NAME": "Retain Ping Attack",
     "DESCRIPTION": "Retain. NL Deal !D! damage. NL When Retained, deal !M! damage to a random enemy."
+  },
+  "${modID}:Brutal Slash": {
+    "NAME": "Brutal Slash",
+    "DESCRIPTION": "Deal damage and apply ${modID}:Trauma equal to the number of cards in your hand.",
+    "UPGRADE_DESCRIPTION": "Deal damage and apply ${modID}:Trauma equal to the number of cards in your hand +3.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+  "${modID}:Torture": {
+    "NAME": "Torture",
+    "DESCRIPTION": "Double the enemy's ${modID}:Trauma, then ${modID}:Awaken it. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Triple the enemy's ${modID}:Trauma, then ${modID}:Awaken it. NL Exhaust."
+  },
+  "${modID}:AOE Trauma": {
+    "NAME": "AOE Trauma",
+    "DESCRIPTION": "Apply !M! ${modID}:Trauma to ALL enemies. NL Store this card."
+  },
+  "${modID}:Unending Torment": {
+    "NAME": "Unending Torment",
+    "DESCRIPTION": "Awakening ${modID}:Trauma does not cause the enemy to lose their ${modID}:Trauma."
+  },
+  "${modID}:Retain Trauma": {
+    "NAME": "Retain Trauma",
+    "DESCRIPTION": "Retain. NL Apply !M! ${modID}:Trauma. NL If the enemy's ${modID}:Trauma was not ${modID}:awoken, return this to your hand."
+  },
+  "${modID}:Create Dread": {
+    "NAME": "Create Dread",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Trauma. NL This does not ${modID}:Awaken the enemy's ${modID}:Trauma."
   }
 }

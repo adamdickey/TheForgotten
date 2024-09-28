@@ -61,5 +61,19 @@
       "Whenever you add a card to your deck, gain #b",
       " #yGold. No longer works when you skip a card reward."
     ]
+  },
+  "${modID}:Scary Mask": {
+    "NAME": "Scary Mask",
+    "FLAVOR": "The mask is painted to resemble a terrifying creature.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, apply #b5 #yTrauma to ALL enemies."
+    ]
+  },
+  "${modID}:Monster Skull": {
+    "NAME": "Monster Skull",
+    "FLAVOR": "A souvenir from your past encounters.",
+    "DESCRIPTIONS": [
+      "At the start of enemies' turns, they gain #b1 #yTrauma for every #b2 #yTrauma they have."
+    ]
   }
 }

@@ -1,22 +1,20 @@
 package forgottenmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.actions.HandSelectAction;
+import forgottenmod.actions.AwakenAction;
+import forgottenmod.powers.Trauma;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 
-public class CommonDiscardAttack extends BaseCard {
-    public static final String ID = makeID("Common Discard Attack"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
+public class BrutalSlash extends BaseCard {
+    public static final String ID = makeID("Brutal Slash"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
             TheForgotten.Enums.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a basegame character color.
             CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
@@ -27,28 +25,43 @@ public class CommonDiscardAttack extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public CommonDiscardAttack() {
+    public BrutalSlash() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseDamage = 5;
-        int UPG_Damage = 2;
+        int baseDamage = 6;
+        int UPG_Damage = 3;
         setDamage(baseDamage, UPG_Damage);
     }
-    int cardsDiscarded = 0;
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new HandSelectAction(2, c -> true, list -> {
-        },list -> {
-            for (AbstractCard c : list) {
-                AbstractDungeon.handCardSelectScreen.selectedCards.moveToDiscardPile(c);
-                c.triggerOnManualDiscard();
-                GameActionManager.incrementDiscard(false);
-                cardsDiscarded++;
-            }
-            for(int i = 0; i < cardsDiscarded; i++){
-                addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
-            }
-        },"Discard", false, true, true));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        if(m.hasPower(Trauma.ID)){
+            addToBot(new ApplyPowerAction(m, p, new Trauma(magicNumber, m), magicNumber));
+            addToBot(new AwakenAction(m));
+        } else {
+            addToBot(new ApplyPowerAction(m, p, new Trauma(magicNumber, m), magicNumber));
+        }
+        if (!this.upgraded) {
+            this.rawDescription = cardStrings.DESCRIPTION;
+        } else {
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        }
+        initializeDescription();
+    }
 
+    public void applyPowers() {
+        this.baseDamage = player.hand.size();
+        this.magicNumber = player.hand.size();
+        if (this.upgraded)
+            this.baseDamage += 3;
+        this.magicNumber += 3;
+        super.applyPowers();
+        if (!this.upgraded) {
+            this.rawDescription = cardStrings.DESCRIPTION;
+        } else {
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+        }
+        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
     }
 }

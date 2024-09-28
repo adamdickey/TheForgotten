@@ -21,13 +21,18 @@ public class DejaVu extends BasePower {
             this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
         }
     }
+    boolean canEcho = false;
+    public void onInitialApplication(){
+        canEcho = false;
+    }
     int echoes = 0;
     @Override
     public void atStartOfTurn(){
         echoes = 0;
+        canEcho = true;
     }
     public void onCardDraw(AbstractCard card){
-        if(echoes < this.amount){
+        if(canEcho && echoes < this.amount){
             echoes++;
             addToBot(new EchoAction(card, 1));
         }

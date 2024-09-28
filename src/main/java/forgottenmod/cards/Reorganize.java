@@ -21,12 +21,9 @@ public class Reorganize extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public Reorganize() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseMagicNumber = 1;
+        int baseMagicNumber = 2;
         int UPG_Number = 1;
         setMagic(baseMagicNumber, UPG_Number);
-    }
-    public void triggerWhenDrawn() {
-        addToBot(new EchoAction(this, 1));
     }
 
     @Override
