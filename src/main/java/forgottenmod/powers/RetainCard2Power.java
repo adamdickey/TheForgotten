@@ -6,11 +6,11 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
 
-public class RetainThisTurn extends BasePower {
+public class RetainCard2Power extends BasePower {
 
-    public static final String ID = makeID("Retain This Turn");
+    public static final String ID = makeID("Retain Cards");
 
-    public RetainThisTurn(int amount) {
+    public RetainCard2Power(int amount) {
         super(ID, PowerType.BUFF, false, player, player, amount, true);
         this.amount = amount;
         loadRegion("retain");
@@ -33,6 +33,5 @@ public class RetainThisTurn extends BasePower {
         if (!AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.player.hasPower("Equilibrium")){
             addToBot(new RetainCardsAction(this.owner, this.amount));
         }
-        addToBot(new RemoveSpecificPowerAction(player, player, this));
     }
 }

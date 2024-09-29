@@ -1,6 +1,7 @@
 package forgottenmod.powers;
 
 import basemod.BaseMod;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
@@ -9,7 +10,7 @@ public class HandSizeIncreasePower extends BasePower {
 
     public static final String ID = makeID("Hand Size Increase");
     public HandSizeIncreasePower(int amount) {
-        super(ID, PowerType.BUFF, false, player, player, amount, true);
+        super(ID, PowerType.BUFF, true, player, player, amount, true);
         loadRegion("draw");
     }
 
@@ -19,6 +20,9 @@ public class HandSizeIncreasePower extends BasePower {
     public void onInitialApplication() {
         super.onInitialApplication();
         BaseMod.MAX_HAND_SIZE += this.amount;
+    }
+    public void atStartOfTurn(){
+        addToBot(new RemoveSpecificPowerAction(player, player, this));
     }
 
     public void onRemove() {

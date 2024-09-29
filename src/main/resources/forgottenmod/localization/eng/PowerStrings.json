@@ -84,7 +84,7 @@
     "NAME": "Hand Size Increase",
     "DESCRIPTIONS": [
       "Your maximum hand size is increased by #b",
-      " this combat."
+      " this turn."
     ]
   },
   "${modID}:Deja Vu": {
@@ -134,6 +134,14 @@
     "NAME": "Unending Torment",
     "DESCRIPTIONS": [
       "Awakening #yTrauma does not cause the enemy to lose their #yTrauma."
+    ]
+  },
+  "${modID}:Retain Cards": {
+    "NAME": "Retain Cards",
+    "DESCRIPTIONS": [
+      "At the end of your turn, you may retain #b",
+      " card.",
+      " cards."
     ]
   }
 }

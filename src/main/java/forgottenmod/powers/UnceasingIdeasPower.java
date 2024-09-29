@@ -1,6 +1,7 @@
 package forgottenmod.powers;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import forgottenmod.cards.StoreStrength;
@@ -17,6 +18,7 @@ public class UnceasingIdeasPower extends BasePower {
         this.amount = amount;
         loadRegion("hymn");
     }
+    boolean drawn = false;
 
     public void updateDescription() {
         if (this.amount > 1) {
@@ -25,15 +27,18 @@ public class UnceasingIdeasPower extends BasePower {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         }
     }
+    public void onAfterUseCard(AbstractCard card, UseCardAction action){
+        drawn = false;
+        if(card.type == AbstractCard.CardType.POWER){
+            drawCard();
+        }
+    }
 
-    //public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        //if ((player.hand.isEmpty() || card instanceof DiscardHandAttack) && !(player.hasPower(StoredPower.ID))) {
-            //flash();
-            //addToBot(new DrawCardAction(AbstractDungeon.player, this.amount));
-        //}
-    //}
     public void onDrawOrDiscard(){
-        drawCard();
+        if(!drawn){
+            drawCard();
+            drawn = true;
+        }
     }
     public void onExhaust(AbstractCard card){
         if (card instanceof StoreStrength && player.hand.size() == 1 &&
@@ -45,7 +50,7 @@ public class UnceasingIdeasPower extends BasePower {
     }
 
     public void drawCard() {
-        if (AbstractDungeon.actionManager.actions.isEmpty() && AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.actionManager.turnHasEnded &&
+        if (AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.actionManager.turnHasEnded &&
                 !AbstractDungeon.player.hasPower("No Draw"))
             if ((!AbstractDungeon.player.discardPile.isEmpty() || !AbstractDungeon.player.drawPile.isEmpty())
                     && !player.hasPower(StoredPower.ID)) {

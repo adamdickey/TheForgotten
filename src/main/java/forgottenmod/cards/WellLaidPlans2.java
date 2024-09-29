@@ -3,7 +3,7 @@ package forgottenmod.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.RetainCardPower;
+import forgottenmod.powers.RetainCard2Power;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -27,6 +27,6 @@ public class WellLaidPlans2 extends BaseCard {
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new RetainCardPower(p, magicNumber), magicNumber));
+        addToBot(new ApplyPowerAction(p, p, new RetainCard2Power(magicNumber), magicNumber));
     }
 }

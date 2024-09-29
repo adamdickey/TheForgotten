@@ -210,7 +210,8 @@
   },
   "${modID}:Recollect": {
     "NAME": "Recollect",
-    "DESCRIPTION": "Play a copy of each ${modID}:Stored card."
+    "DESCRIPTION": "Play a copy of each ${modID}:Stored card.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Play a copy of each ${modID}:Stored card."
   },
   "${modID}:Double Strike": {
     "NAME": "Double Strike",
@@ -310,7 +311,7 @@
   },
   "${modID}:Hand Size Increase": {
     "NAME": "Hand Size Increase",
-    "DESCRIPTION": "Increase your maximum hand size by !M! this combat. NL Draw !M! cards. NL Exhaust."
+    "DESCRIPTION": "Increase your maximum hand size by !M! this turn. NL Draw !M! cards. NL Exhaust."
   },
   "${modID}:Hand Full Defend": {
     "NAME": "Hand Full Defend",
@@ -341,9 +342,9 @@
     "DESCRIPTION": "Fill your hand with ${modID}:Echoes of Strikes.",
     "UPGRADE_DESCRIPTION": "Fill your hand with ${modID}:Echoes of upgraded Strikes."
   },
-  "${modID}:Scrawl 2": {
-    "NAME": "Scrawl 2",
-    "DESCRIPTION": "Draw 10 cards."
+  "${modID}:Scheme": {
+    "NAME": "Scheme",
+    "DESCRIPTION": "Next turn, draw 10 additional cards."
   },
   "${modID}:X Discard": {
     "NAME": "X Discard",
@@ -360,7 +361,7 @@
   },
   "${modID}:Full Weak Attack": {
     "NAME": "Full Weak Attack",
-    "DESCRIPTION": "Deal !D! damage. If you have 6 or more cards in hand, apply !M! Weak."
+    "DESCRIPTION": "Deal !D! damage. NL If you have 6 or more cards in hand, apply !M! Weak."
   },
   "${modID}:Instill Fear": {
     "NAME": "Instill Fear",

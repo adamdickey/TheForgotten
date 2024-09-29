@@ -1,14 +1,13 @@
 package forgottenmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.actions.LockingDrawAction;
+import forgottenmod.actions.SuperGambleAction;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
-public class LockingDraw extends BaseCard {
-    public static final String ID = makeID("Locking Draw"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
+public class SuperGamble extends BaseCard {
+    public static final String ID = makeID("Super Gamble"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
             TheForgotten.Enums.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a basegame character color.
             CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
@@ -19,15 +18,15 @@ public class LockingDraw extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public LockingDraw() {
+    public SuperGamble() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseMagicNumber = 2;
+        int baseMagicNumber = 1;
         int UPG_Magic = 1;
         setMagic(baseMagicNumber, UPG_Magic);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DrawCardAction(4, new LockingDrawAction(magicNumber)));
+        addToBot(new SuperGambleAction(magicNumber));
     }
 }

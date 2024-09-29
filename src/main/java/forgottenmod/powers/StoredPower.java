@@ -16,7 +16,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.TimeWarpPower;
 import forgottenmod.actions.unStorageModifier;
 import forgottenmod.cards.*;
 
@@ -78,11 +77,13 @@ public class StoredPower extends BasePower implements InvisiblePower {
         triggered = false;
         if(card instanceof Recollect){
             for(AbstractCard c : storedCards){
-                AbstractCard tmp = c.makeSameInstanceOf();
-                tmp.purgeOnUse = true;
-                AbstractMonster monster = AbstractDungeon.getRandomMonster();
-                tmp.calculateCardDamage(monster);
-                addToBot(new NewQueueCardAction(tmp, monster, false, true));
+                if(!(c instanceof Recollect)){
+                    AbstractCard tmp = c.makeSameInstanceOf();
+                    tmp.purgeOnUse = true;
+                    AbstractMonster monster = AbstractDungeon.getRandomMonster();
+                    tmp.calculateCardDamage(monster);
+                    addToBot(new NewQueueCardAction(tmp, monster, false, true));
+                }
                 if(c instanceof StoreStrength){
                     addToBot(new ApplyPowerAction(player, player, new StrengthPower(player, c.magicNumber), c.magicNumber));
                 }

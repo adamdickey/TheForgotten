@@ -21,7 +21,7 @@ public class FatalDoublingAttack extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public FatalDoublingAttack() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseDamage = 14;
+        int baseDamage = 12;
         int UPG_Damage = 4;
         setDamage(baseDamage, UPG_Damage);
         this.selfRetain = true;
