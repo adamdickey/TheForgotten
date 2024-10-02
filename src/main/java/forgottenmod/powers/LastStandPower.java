@@ -3,6 +3,7 @@ package forgottenmod.powers;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
@@ -38,12 +39,14 @@ public class LastStandPower extends BasePower {
                 //flash();
                 strengthAmount = this.amount;
                 addToBot(new ApplyPowerAction(player, player, new StrengthPower(player, this.amount), this.amount));
+                addToBot(new ApplyPowerAction(player, player, new DexterityPower(player, this.amount), this.amount));
                 this.active = true;
             }
         } else {
             if(this.active){
                 //flash();
                 addToBot(new ApplyPowerAction(player, player, new StrengthPower(player, -strengthAmount), -strengthAmount));
+                addToBot(new ApplyPowerAction(player, player, new DexterityPower(player, -strengthAmount), -strengthAmount));
                 this.active = false;
             }
         }
@@ -54,6 +57,7 @@ public class LastStandPower extends BasePower {
                 //flash();
                 strengthAmount = powerAmount;
                 addToBot(new ApplyPowerAction(player, player, new StrengthPower(player, strengthAmount), strengthAmount));
+                addToBot(new ApplyPowerAction(player, player, new DexterityPower(player, strengthAmount), strengthAmount));
                 this.active = true;
             }
         } else {

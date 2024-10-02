@@ -29,8 +29,8 @@ public class TrackerPower extends BasePower implements InvisiblePower {
     }
     public void onDrawOrDiscard(){
         int handSize = 10;
-        if(player.hasPower(HandSizeIncreasePower.ID)){
-            handSize = 10 + player.getPower(HandSizeIncreasePower.ID).amount;
+        if(player.hasPower(HandSizeIncrease.ID)){
+            handSize = 10 + player.getPower(HandSizeIncrease.ID).amount;
         }
         if(player.hand.size() == handSize){
             for(AbstractCard c : player.hand.group){

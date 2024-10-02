@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
+import forgottenmod.powers.HandSizeNextTurn;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -21,10 +22,15 @@ public class Scheme extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public Scheme() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
+        int baseMagicNumber = 3;
+        int UPG_Number = 2;
+        setMagic(baseMagicNumber, UPG_Number);
+        this.exhaust = true;
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new ApplyPowerAction(p, p, new HandSizeNextTurn(magicNumber), magicNumber));
         addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, 10)));
     }
     public void upgrade() {

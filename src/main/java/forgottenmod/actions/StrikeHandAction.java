@@ -2,8 +2,8 @@ package forgottenmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import forgottenmod.cards.HandSizeIncrease;
 import forgottenmod.cards.Strike;
+import forgottenmod.powers.HandSizeIncrease;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 

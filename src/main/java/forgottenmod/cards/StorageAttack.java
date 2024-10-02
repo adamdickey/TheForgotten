@@ -23,7 +23,7 @@ public class StorageAttack extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public StorageAttack() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseDamage = 8;
+        int baseDamage = 9;
         int UPG_Damage = 3;
         setDamage(baseDamage, UPG_Damage);
     }

@@ -22,7 +22,7 @@ public class UnplayableBlock extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public UnplayableBlock() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseBlock = 4;
+        int baseBlock = 3;
         int UPG_Block = 2;
         setBlock(baseBlock, UPG_Block);
         this.selfRetain = true;

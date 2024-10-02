@@ -84,9 +84,6 @@ public class StoredPower extends BasePower implements InvisiblePower {
                     tmp.calculateCardDamage(monster);
                     addToBot(new NewQueueCardAction(tmp, monster, false, true));
                 }
-                if(c instanceof StoreStrength){
-                    addToBot(new ApplyPowerAction(player, player, new StrengthPower(player, c.magicNumber), c.magicNumber));
-                }
             }
         }
     }

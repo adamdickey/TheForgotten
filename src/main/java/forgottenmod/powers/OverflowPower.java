@@ -24,8 +24,8 @@ public class OverflowPower extends BasePower implements NonStackablePower {
     public void onDrawOrDiscard(){
         ArrayList<AbstractCard> playableCards = new ArrayList<>();
         int handSize = 10;
-        if(player.hasPower(HandSizeIncreasePower.ID)){
-            handSize += player.getPower(HandSizeIncreasePower.ID).amount;
+        if(player.hasPower(HandSizeIncrease.ID)){
+            handSize += player.getPower(HandSizeIncrease.ID).amount;
         }
         if(player.hand.size() == handSize){
             for(AbstractCard c : player.hand.group){

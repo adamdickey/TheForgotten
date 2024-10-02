@@ -77,7 +77,7 @@
     "NAME": "Last Stand",
     "DESCRIPTIONS": [
       "While you have #b3 or fewer cards in hand, you have #b",
-      " additional #yStrength."
+      " additional #yStrength and #yDexterity."
     ]
   },
   "${modID}:Hand Size Increase": {
@@ -85,6 +85,13 @@
     "DESCRIPTIONS": [
       "Your maximum hand size is increased by #b",
       " this turn."
+    ]
+  },
+  "${modID}:Next Turn Hand Size": {
+    "NAME": "Next Turn Hand Size",
+    "DESCRIPTIONS": [
+      "Next turn, increase your maximum hand size by #b",
+      "."
     ]
   },
   "${modID}:Deja Vu": {
@@ -142,6 +149,13 @@
       "At the end of your turn, you may retain #b",
       " card.",
       " cards."
+    ]
+  },
+  "${modID}:Last Hope": {
+    "NAME": "Last Hope",
+    "DESCRIPTIONS": [
+      "Whenever your hand becomes empty during your turn, gain #b",
+      " Block."
     ]
   }
 }

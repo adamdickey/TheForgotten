@@ -25,9 +25,9 @@ public class FiveCardScrape extends BaseCard {
     public FiveCardScrape() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         int baseDamage = 7;
-        int UPG_Damage = 4;
-        int baseMagicNumber = 3;
-        int UPG_Number = 0;
+        int UPG_Damage = 3;
+        int baseMagicNumber = 2;
+        int UPG_Number = 1;
         setDamage(baseDamage, UPG_Damage);
         setMagic(baseMagicNumber, UPG_Number);
     }

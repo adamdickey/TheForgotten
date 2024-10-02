@@ -299,7 +299,7 @@
   },
   "${modID}:Last Stand": {
     "NAME": "Last Stand",
-    "DESCRIPTION": "While you have 3 or fewer cards in hand, you have !M! additional Strength."
+    "DESCRIPTION": "While you have 3 or fewer cards in hand, you have !M! additional Strength and Dexterity."
   },
   "${modID}:Damage Per Created": {
     "NAME": "Damage Per Created",
@@ -323,7 +323,7 @@
   "${modID}:Deja Vu": {
     "NAME": "Deja Vu",
     "DESCRIPTION": "The first card you draw each turn has ${modID}:Echo.",
-    "UPGRADE_DESCRIPTION": "The first 2 cards you draw each turn have ${modID}:Echo."
+    "UPGRADE_DESCRIPTION": "Innate. NL The first card you draw each turn has ${modID}:Echo."
   },
   "${modID}:Extra Draw": {
     "NAME": "Extra Draw",
@@ -344,7 +344,7 @@
   },
   "${modID}:Scheme": {
     "NAME": "Scheme",
-    "DESCRIPTION": "Next turn, draw 10 additional cards."
+    "DESCRIPTION": "Next turn, increase your maximum hand size by !M! for that turn and draw 10 additional cards. NL Exhaust."
   },
   "${modID}:X Discard": {
     "NAME": "X Discard",
@@ -403,5 +403,14 @@
   "${modID}:Create Dread": {
     "NAME": "Create Dread",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! ${modID}:Trauma. NL This does not ${modID}:Awaken the enemy's ${modID}:Trauma."
+  },
+  "${modID}:Toolkit": {
+    "NAME": "Toolkit",
+    "DESCRIPTION": "Add 2 *Shivs and NL 1 *Shield into your hand. NL ${modID}:Store this card.",
+    "UPGRADE_DESCRIPTION": "Add 2 *Shivs+ and NL 1 *Shield+ into your hand. NL ${modID}:Store this card."
+  },
+  "${modID}:Last Hope": {
+    "NAME": "Last Hope",
+    "DESCRIPTION": "Whenever your hand becomes empty during your turn, gain !M! Block."
   }
 }

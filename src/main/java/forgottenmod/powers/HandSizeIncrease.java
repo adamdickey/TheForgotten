@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
 
-public class HandSizeIncreasePower extends BasePower {
+public class HandSizeIncrease extends BasePower {
 
     public static final String ID = makeID("Hand Size Increase");
-    public HandSizeIncreasePower(int amount) {
+    public HandSizeIncrease(int amount) {
         super(ID, PowerType.BUFF, true, player, player, amount, true);
         loadRegion("draw");
     }
@@ -44,6 +44,4 @@ public class HandSizeIncreasePower extends BasePower {
         super.onVictory();
         BaseMod.MAX_HAND_SIZE -= this.amount;
     }
-
-
 }

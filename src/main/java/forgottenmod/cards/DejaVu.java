@@ -21,8 +21,9 @@ public class DejaVu extends BaseCard {
     public DejaVu() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         int baseMagicNumber = 1;
-        int UPG_Number = 1;
+        int UPG_Number = 0;
         setMagic(baseMagicNumber, UPG_Number);
+        this.upgInnate = true;
     }
 
     @Override
