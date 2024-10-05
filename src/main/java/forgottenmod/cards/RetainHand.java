@@ -2,13 +2,13 @@ package forgottenmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EquilibriumPower;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 
 public class RetainHand extends BaseCard {
     public static final String ID = makeID("Retain Hand"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
@@ -37,12 +37,7 @@ public class RetainHand extends BaseCard {
     }
 
     public void applyPowers() {
-        int count = 0;
-        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (c != this)
-                count++;
-        }
-        this.baseBlock = count * this.magicNumber;
+        this.baseBlock = player.hand.size() * this.magicNumber;
         super.applyPowers();
         this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();

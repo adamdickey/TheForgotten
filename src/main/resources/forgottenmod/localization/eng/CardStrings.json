@@ -66,8 +66,8 @@
     "NAME": "Discard Vuln Attack",
     "DESCRIPTION": "Deal !D! damage. NL If you have discarded a card this turn, apply !M! Vulnerable."
   },
-  "${modID}:Forget Attack": {
-    "NAME": "Forget Attack",
+  "${modID}:Concuss": {
+    "NAME": "Concuss",
     "DESCRIPTION": "Deal !D! damage. NL Add a *Forget to your hand."
   },
   "${modID}:Common Discard Attack": {
@@ -102,8 +102,8 @@
     "NAME": "Discardable Defend",
     "DESCRIPTION": "Gain !B! Block. NL If this card is discarded, gain !B! Block."
   },
-  "${modID}:Forget Defend": {
-    "NAME": "Forget Defend",
+  "${modID}:Disregard": {
+    "NAME": "Disregard",
     "DESCRIPTION": "Gain !B! Block. NL Add a *Forget to your hand."
   },
   "${modID}:Card Storing Defend": {
@@ -303,7 +303,7 @@
   },
   "${modID}:Damage Per Created": {
     "NAME": "Damage Per Created",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deals additional damage equal to the number of cards created this combat."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deals 2 additional damage for each card created this combat."
   },
   "${modID}:Discard Hand Attack": {
     "NAME": "Discard Hand Attack",
@@ -339,8 +339,7 @@
   },
   "${modID}:Strike Hand": {
     "NAME": "Strike Hand",
-    "DESCRIPTION": "Fill your hand with ${modID}:Echoes of Strikes.",
-    "UPGRADE_DESCRIPTION": "Fill your hand with ${modID}:Echoes of upgraded Strikes."
+    "DESCRIPTION": "Fill your hand with ${modID}:Echoes of Strikes."
   },
   "${modID}:Scheme": {
     "NAME": "Scheme",
@@ -357,7 +356,7 @@
   },
   "${modID}:Store Next Card": {
     "NAME": "Store Next Card",
-    "DESCRIPTION": "Deal !D! damage. NL The next card you play this turn is Stored."
+    "DESCRIPTION": "Deal !D! damage. NL The next card you play this turn is ${modID}:Stored."
   },
   "${modID}:Full Weak Attack": {
     "NAME": "Full Weak Attack",
@@ -385,12 +384,16 @@
   },
   "${modID}:Torture": {
     "NAME": "Torture",
-    "DESCRIPTION": "Double the enemy's ${modID}:Trauma, then ${modID}:Awaken it. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Triple the enemy's ${modID}:Trauma, then ${modID}:Awaken it. NL Exhaust."
+    "DESCRIPTION": "Apply !M! ${modID}:Trauma for each Attack played this turn.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " Attack played.)",
+      " Attacks played.)"
+    ]
   },
   "${modID}:AOE Trauma": {
     "NAME": "AOE Trauma",
-    "DESCRIPTION": "Apply !M! ${modID}:Trauma to ALL enemies. NL Store this card."
+    "DESCRIPTION": "Apply !M! ${modID}:Trauma to ALL enemies. NL ${modID}:Store this card."
   },
   "${modID}:Unending Torment": {
     "NAME": "Unending Torment",
@@ -406,11 +409,19 @@
   },
   "${modID}:Toolkit": {
     "NAME": "Toolkit",
-    "DESCRIPTION": "Add 2 *Shivs and NL 1 *Shield into your hand. NL ${modID}:Store this card.",
-    "UPGRADE_DESCRIPTION": "Add 2 *Shivs+ and NL 1 *Shield+ into your hand. NL ${modID}:Store this card."
+    "DESCRIPTION": "Add 1 *Shiv and NL 1 *Shield into your hand. NL ${modID}:Store this card.",
+    "UPGRADE_DESCRIPTION": "Add 2 *Shivs and NL 1 *Shield into your hand. NL ${modID}:Store this card."
   },
   "${modID}:Last Hope": {
     "NAME": "Last Hope",
     "DESCRIPTION": "Whenever your hand becomes empty during your turn, gain !M! Block."
+  },
+  "${modID}:Overpower": {
+    "NAME": "Overpower",
+    "DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Discard 1 card."
+  },
+  "${modID}:Enlightenment": {
+    "NAME": "Enlightenment",
+    "DESCRIPTION": "Your maximum hand size is increased by !M! this combat."
   }
 }

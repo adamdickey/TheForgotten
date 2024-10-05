@@ -27,6 +27,7 @@ public class DoubleStrike extends BaseCard {
         int baseDamage = 5;
         int UPG_Damage = 2;
         setDamage(baseDamage, UPG_Damage);
+        this.tags.add(CardTags.STRIKE);
     }
     public void triggerWhenDrawn() {
         addToBot(new EchoAction(this, 1));

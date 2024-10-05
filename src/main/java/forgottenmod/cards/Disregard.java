@@ -4,11 +4,12 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import forgottenmod.powers.EnlightenmentPower;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
-public class ForgetDefend extends BaseCard {
-    public static final String ID = makeID("Forget Defend"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
+public class Disregard extends BaseCard {
+    public static final String ID = makeID("Disregard"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
             TheForgotten.Enums.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a basegame character color.
             CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
@@ -19,7 +20,7 @@ public class ForgetDefend extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public ForgetDefend() {
+    public Disregard() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         int baseBlock = 9;
         int UPG_Block = 3;
@@ -29,6 +30,10 @@ public class ForgetDefend extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        addToBot(new MakeTempCardInHandAction(this.cardsToPreview, 1));
+        if(p.hasPower(EnlightenmentPower.ID)){
+            addToBot(new MakeTempCardInHandAction(new Memory(), 1));
+        } else {
+            addToBot(new MakeTempCardInHandAction(this.cardsToPreview, 1));
+        }
     }
 }

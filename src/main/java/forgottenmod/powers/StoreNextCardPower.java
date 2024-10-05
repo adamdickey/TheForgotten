@@ -8,6 +8,7 @@ import forgottenmod.actions.StoreOtherCardAction;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
+import static forgottenmod.BasicMod.selfStoring;
 
 public class StoreNextCardPower extends BasePower {
 
@@ -33,7 +34,7 @@ public class StoreNextCardPower extends BasePower {
     }
     public void onAfterUseCard(AbstractCard cardPlayed, UseCardAction action) {
         if(cardPlayed != card){
-            if(!card.exhaust){
+            if(!cardPlayed.exhaust && !card.hasTag(selfStoring)){
                 addToBot(new StoreOtherCardAction(cardPlayed, true, player.discardPile));
             }
             if(this.amount == 1){

@@ -2,6 +2,7 @@ package forgottenmod.powers;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import forgottenmod.cards.Forget;
+import forgottenmod.cards.Memory;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
@@ -23,6 +24,10 @@ public class AmnesiaPower extends BasePower {
     }
     @Override
     public void atStartOfTurn(){
-        addToBot(new MakeTempCardInHandAction(new Forget()));
+        if(player.hasPower(EnlightenmentPower.ID)){
+            addToBot(new MakeTempCardInHandAction(new Memory(), 1));
+        } else {
+            addToBot(new MakeTempCardInHandAction(new Forget()));
+        }
     }
 }

@@ -22,6 +22,8 @@ public class RemoveRelicsPatch {
             relicsToRemoveOnStart.add(DuVuDoll.ID);
             relicsToRemoveOnStart.add(CeramicFish.ID);
             relicsToRemoveOnStart.add(TinyHouse.ID);
+            relicsToRemoveOnStart.add(ChemicalX.ID);
+            relicsToRemoveOnStart.add(VelvetChoker.ID);
 
             for (String remove : relicsToRemoveOnStart) {
                 Iterator<String> s;

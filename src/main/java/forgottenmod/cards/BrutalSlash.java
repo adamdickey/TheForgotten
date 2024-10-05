@@ -27,9 +27,6 @@ public class BrutalSlash extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public BrutalSlash() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseDamage = 6;
-        int UPG_Damage = 3;
-        setDamage(baseDamage, UPG_Damage);
     }
 
     @Override
@@ -52,9 +49,10 @@ public class BrutalSlash extends BaseCard {
     public void applyPowers() {
         this.baseDamage = player.hand.size();
         this.magicNumber = player.hand.size();
-        if (this.upgraded)
+        if (this.upgraded){
             this.baseDamage += 3;
-        this.magicNumber += 3;
+            this.magicNumber += 3;
+        }
         super.applyPowers();
         if (!this.upgraded) {
             this.rawDescription = cardStrings.DESCRIPTION;

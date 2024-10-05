@@ -10,6 +10,9 @@ import forgottenmod.powers.Trauma;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
+import static forgottenmod.BasicMod.selfStoring;
+import static forgottenmod.BasicMod.wasStored;
+
 public class AoeTrauma extends BaseCard {
     public static final String ID = makeID("AOE Trauma"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
@@ -27,6 +30,8 @@ public class AoeTrauma extends BaseCard {
         int baseMagicNumber = 12;
         int UPG_Magic = 3;
         setMagic(baseMagicNumber, UPG_Magic);
+        this.tags.add(selfStoring);
+        this.tags.remove(wasStored);
     }
 
     @Override
@@ -39,6 +44,6 @@ public class AoeTrauma extends BaseCard {
                 addToBot(new ApplyPowerAction(mo, p, new Trauma(magicNumber, mo), magicNumber));
             }
         }
-        addToBot(new StorageAction(this, false));
+        addToBot(new StorageAction(this));
     }
 }

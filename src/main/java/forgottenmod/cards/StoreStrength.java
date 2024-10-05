@@ -6,6 +6,9 @@ import forgottenmod.actions.StorageAction;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
+import static forgottenmod.BasicMod.selfStoring;
+import static forgottenmod.BasicMod.wasStored;
+
 public class StoreStrength extends BaseCard {
     public static final String ID = makeID("Store Strength"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
@@ -23,9 +26,11 @@ public class StoreStrength extends BaseCard {
         int baseMagicNumber = 2;
         int UPG_Magic = 1;
         setMagic(baseMagicNumber, UPG_Magic);
+        this.tags.add(selfStoring);
+        this.tags.remove(wasStored);
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new StorageAction(this, true));
+        addToBot(new StorageAction(this));
     }
 }

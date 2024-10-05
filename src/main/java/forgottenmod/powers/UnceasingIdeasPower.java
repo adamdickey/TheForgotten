@@ -6,8 +6,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import forgottenmod.cards.StoreStrength;
 
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.actionManager;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
-import static forgottenmod.BasicMod.makeID;
+import static forgottenmod.BasicMod.*;
 
 public class UnceasingIdeasPower extends BasePower {
 
@@ -27,10 +28,16 @@ public class UnceasingIdeasPower extends BasePower {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         }
     }
-    public void onAfterUseCard(AbstractCard card, UseCardAction action){
+    public void onUseCard(AbstractCard card, UseCardAction action){
         drawn = false;
+        if(card.hasTag(selfStoring) && !card.hasTag(wasStored)){
+            drawn = true;
+        }
+    }
+    public void onAfterUseCard(AbstractCard card, UseCardAction action){
         if(card.type == AbstractCard.CardType.POWER){
             drawCard();
+            drawn = true;
         }
     }
 
@@ -42,7 +49,7 @@ public class UnceasingIdeasPower extends BasePower {
     }
     public void onExhaust(AbstractCard card){
         if (card instanceof StoreStrength && player.hand.size() == 1 &&
-                !AbstractDungeon.actionManager.turnHasEnded && !AbstractDungeon.player.hasPower("No Draw"))
+                !actionManager.turnHasEnded && !AbstractDungeon.player.hasPower("No Draw"))
             if ((!AbstractDungeon.player.discardPile.isEmpty() || !AbstractDungeon.player.drawPile.isEmpty())) {
                 flash();
                 addToBot(new DrawCardAction(AbstractDungeon.player, this.amount));
@@ -50,10 +57,8 @@ public class UnceasingIdeasPower extends BasePower {
     }
 
     public void drawCard() {
-        if (AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.actionManager.turnHasEnded &&
-                !AbstractDungeon.player.hasPower("No Draw"))
-            if ((!AbstractDungeon.player.discardPile.isEmpty() || !AbstractDungeon.player.drawPile.isEmpty())
-                    && !player.hasPower(StoredPower.ID)) {
+        if (player.hand.isEmpty() && !actionManager.turnHasEnded && !player.hasPower("No Draw"))
+            if ((!player.discardPile.isEmpty() || !player.drawPile.isEmpty()) && !player.hasPower(StoredPower.ID)) {
                 flash();
                 addToBot(new DrawCardAction(AbstractDungeon.player, this.amount));
             }

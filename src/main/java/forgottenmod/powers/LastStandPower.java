@@ -64,6 +64,7 @@ public class LastStandPower extends BasePower {
             if(this.active){
                 //flash();
                 addToBot(new ApplyPowerAction(player, player, new StrengthPower(player, -strengthAmount), -strengthAmount));
+                addToBot(new ApplyPowerAction(player, player, new DexterityPower(player, -strengthAmount), -strengthAmount));
                 this.active = false;
             }
         }

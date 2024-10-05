@@ -25,9 +25,6 @@ public class StrikeHandAction extends AbstractGameAction {
         if(strikes > 0){
             for(int i = 0; i < strikes; i++){
                 AbstractCard strike = new Strike();
-                if(card.upgraded){
-                    strike.upgrade();
-                }
                 addToBot(new EchoAction(strike, 1));
             }
         }

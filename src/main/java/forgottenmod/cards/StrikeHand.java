@@ -21,17 +21,17 @@ public class StrikeHand extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public StrikeHand() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        if(this.upgraded){
-            AbstractCard strike = new Strike();
-            strike.upgrade();
-            this.cardsToPreview = strike;
-        } else {
-            this.cardsToPreview = new Strike();
-        }
+        this.cardsToPreview = new Strike();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new StrikeHandAction(this));
+    }
+    public void upgrade() {
+        if (!this.upgraded) {
+            upgradeName();
+            upgradeBaseCost(1);
+        }
     }
 }

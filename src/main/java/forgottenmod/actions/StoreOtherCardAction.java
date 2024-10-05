@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import forgottenmod.powers.StoredPower;
+import forgottenmod.powers.UnceasingIdeasPower;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.*;
@@ -24,17 +25,22 @@ public class StoreOtherCardAction extends AbstractGameAction {
     }
 
     public void update() {
-        if(player.hand.isEmpty() && !player.hasPower(StoredPower.ID) && !card.hasTag(wasStored)){
-            addToBot(new ReturnToHandAction(card));
-            this.isDone = true;
-            return;
-        }
         if(player.hasPower(StoredPower.ID)){
             if(player.getPower(StoredPower.ID).amount >= 3){
                 createStorageIsFullDialog();
                 this.isDone = true;
                 return;
             }
+        }
+        if(player.hasPower(UnceasingIdeasPower.ID)){
+            zone.moveToExhaustPile(card);
+            addToBot(new ApplyPowerAction(player, player, new StoredPower(player, 1, card), 1));
+        }
+        if(player.hand.isEmpty() && !player.hasPower(StoredPower.ID) && !card.hasTag(wasStored)){
+            addToBot(new DiscardToHandAction(card));
+            addToBot(new ReturnToHandAction(card));
+            this.isDone = true;
+            return;
         }
         zone.moveToExhaustPile(card);
         addToBot(new ApplyPowerAction(player, player, new StoredPower(player, 1, card), 1));

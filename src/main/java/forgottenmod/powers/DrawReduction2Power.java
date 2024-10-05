@@ -17,10 +17,12 @@ public class DrawReduction2Power extends BasePower {
     public void onInitialApplication() {
         AbstractDungeon.player.gameHandSize -= this.amount;
     }
+    public void onRemove(){
+        AbstractDungeon.player.gameHandSize += this.amount;
+    }
 
     public void atStartOfTurnPostDraw(){
         if(AbstractDungeon.player.hasPower(DrawReduction2Power.ID)){
-            AbstractDungeon.player.gameHandSize += this.amount;
             addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, DrawReduction2Power.ID));
         }
     }

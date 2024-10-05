@@ -8,6 +8,9 @@ import forgottenmod.actions.StorageAction;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
+import static forgottenmod.BasicMod.selfStoring;
+import static forgottenmod.BasicMod.wasStored;
+
 public class Toolkit extends BaseCard {
     public static final String ID = makeID("Toolkit"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
@@ -22,25 +25,25 @@ public class Toolkit extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public Toolkit() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        Shield shield = new Shield();
-        if(this.upgraded){
-            shield.upgrade();
-        }
-        this.cardsToPreview = shield;
+        this.cardsToPreview = new Shield();
+        this.tags.add(selfStoring);
+        this.tags.remove(wasStored);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(!this.purgeOnUse){
-            addToBot(new StorageAction(this, false));
+            addToBot(new StorageAction(this));
         }
         Shiv shiv = new Shiv();
         Shield shield = new Shield();
         if(this.upgraded){
-            shiv.upgrade();
-            shield.upgrade();
+            addToBot(new MakeTempCardInHandAction(shiv, 2));
+            addToBot(new MakeTempCardInHandAction(shield, 1));
+        } else {
+            addToBot(new MakeTempCardInHandAction(shiv, 1));
+            addToBot(new MakeTempCardInHandAction(shield, 1));
         }
-        addToBot(new MakeTempCardInHandAction(shiv, 2));
-        addToBot(new MakeTempCardInHandAction(shield, 1));
+
     }
 }

@@ -33,10 +33,4 @@ public class Scheme extends BaseCard {
         addToBot(new ApplyPowerAction(p, p, new HandSizeNextTurn(magicNumber), magicNumber));
         addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, 10)));
     }
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeBaseCost(0);
-        }
-    }
 }

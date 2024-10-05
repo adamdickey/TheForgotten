@@ -6,10 +6,9 @@ import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import forgottenmod.cards.DoubleStrike;
-import forgottenmod.cards.DualClaw;
+import forgottenmod.relics.ReverberatingPlate;
 
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.isEcho;
 
 public class EchoAction extends AbstractGameAction {
@@ -20,6 +19,7 @@ public class EchoAction extends AbstractGameAction {
         this.card = card;
         this.amount = amount;
     }
+
 
     public void update() {
         if(card.hasTag(isEcho)){
@@ -34,10 +34,11 @@ public class EchoAction extends AbstractGameAction {
         if(!echo.exhaust){
             CardModifierManager.addModifier(echo, new ExhaustMod());
         }
-        if(card instanceof DualClaw){
-            echo.baseDamage = card.baseDamage;
+        if(player.hasRelic(ReverberatingPlate.ID)){
+            addToBot(new MakeTempCardInHandAction(echo, amount+1, false));
+        } else {
+            addToBot(new MakeTempCardInHandAction(echo, amount, false));
         }
-        addToBot(new MakeTempCardInHandAction(echo, amount, false));
         this.isDone = true;
     }
 }

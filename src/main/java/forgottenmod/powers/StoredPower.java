@@ -30,6 +30,7 @@ public class StoredPower extends BasePower implements InvisiblePower {
     private final AbstractCard card;
     boolean endOfTurn = false;
     boolean triggered = false;
+    boolean justApplied = false;
     ArrayList<AbstractCard> storedCards = new ArrayList<>();
     public StoredPower(AbstractPlayer player, int amount, AbstractCard card) {
         super(ID, PowerType.BUFF, false, player, player, 1, false);
@@ -38,6 +39,7 @@ public class StoredPower extends BasePower implements InvisiblePower {
         storedCards.add(this.card);
     }
     public void onInitialApplication() {
+        justApplied = true;
         updateDescription();
         addRenderedCard(card);
         if(player.hand.isEmpty()){
@@ -61,6 +63,7 @@ public class StoredPower extends BasePower implements InvisiblePower {
 
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         if(power instanceof StoredPower){
+            justApplied = true;
             storedCards.add(((StoredPower) power).card);
             updateDescription();
             if(((StoredPower) power).card instanceof Reorganize){
@@ -87,8 +90,11 @@ public class StoredPower extends BasePower implements InvisiblePower {
             }
         }
     }
+    public void onAfterUseCard(AbstractCard card, UseCardAction action){
+        justApplied = false;
+    }
     public void onDrawOrDiscard(){
-        if(player.hand.isEmpty() && !endOfTurn && !triggered){
+        if(player.hand.isEmpty() && !endOfTurn && !triggered && !justApplied){
             triggered = true;
            storedCardToHand();
         }
@@ -97,8 +103,8 @@ public class StoredPower extends BasePower implements InvisiblePower {
         if(!storedCards.isEmpty() && !AbstractDungeon.getCurrRoom().monsters.areMonstersDead()){
             AbstractCard cardToReturn = storedCards.get(0);
             CardModifierManager.addModifier(cardToReturn, new unStorageModifier());
-            addToBot(new ExhaustToHandAction(cardToReturn));
-            addToBot(new UnlimboAction(cardToReturn));
+            addToTop(new UnlimboAction(cardToReturn));
+            addToTop(new ExhaustToHandAction(cardToReturn));
             cardToReturn.setCostForTurn(0);
             if(cardToReturn instanceof StoreStrength){
                 addToBot(new ApplyPowerAction(player, player, new StrengthPower(player, cardToReturn.magicNumber)));

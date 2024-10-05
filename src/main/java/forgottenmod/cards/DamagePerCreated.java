@@ -29,7 +29,7 @@ public class DamagePerCreated extends BaseCard implements OnCreateCardInterface 
         super(ID, info); //Pass the required information to the BaseCard constructor.
         int baseDamage = 8;
         int UPG_Damage = 4;
-        int Magic = 1;
+        int Magic = 2;
         setDamage(baseDamage, UPG_Damage);
         setCustomVar("Magic", Magic);
         this.baseMagicNumber = 0;

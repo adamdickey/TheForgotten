@@ -1,12 +1,15 @@
 package forgottenmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import forgottenmod.actions.AwakenAction;
 import forgottenmod.powers.Trauma;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.actionManager;
 
 public class Torture extends BaseCard {
     public static final String ID = makeID("Torture"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
@@ -22,19 +25,46 @@ public class Torture extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public Torture() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        this.exhaust = true;
+        int baseMagicNumber = 5;
+        int UPG_Number = 2;
+        setMagic(baseMagicNumber, UPG_Number);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(m.hasPower(Trauma.ID)){
-            int traumaAmount = m.getPower(Trauma.ID).amount;
-            if(this.upgraded){
-                addToBot(new ApplyPowerAction(m, p, new Trauma(traumaAmount*2, m), traumaAmount*2));
-            } else {
-                addToBot(new ApplyPowerAction(m, p, new Trauma(traumaAmount, m), traumaAmount));
-            }
-            addToBot(new AwakenAction(m));
+        int count = 0;
+        for (AbstractCard c : actionManager.cardsPlayedThisTurn) {
+            if (c.type == AbstractCard.CardType.ATTACK)
+                count++;
         }
+        if(count > 0){
+            if(m.hasPower(Trauma.ID)){
+                addToBot(new ApplyPowerAction(m, p, new Trauma(count*magicNumber, m), count*magicNumber));
+                addToBot(new AwakenAction(m));
+            } else {
+                addToBot(new ApplyPowerAction(m, p, new Trauma(count*magicNumber, m), count*magicNumber));
+            }
+        }
+    }
+    public void applyPowers() {
+        super.applyPowers();
+        int count = 0;
+        for (AbstractCard c : actionManager.cardsPlayedThisTurn) {
+            if (c.type == AbstractCard.CardType.ATTACK)
+                count++;
+        }
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0] + count;
+        if (count == 1) {
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[1];
+        } else {
+            this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[2];
+        }
+        initializeDescription();
+    }
+
+    public void onMoveToDiscard() {
+        this.rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
     }
 }

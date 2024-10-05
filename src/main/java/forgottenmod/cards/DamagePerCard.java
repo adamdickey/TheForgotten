@@ -24,9 +24,9 @@ public class DamagePerCard extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public DamagePerCard() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseDamage = 2;
+        int baseDamage = 10;
         int UPG_Damage = 0;
-        int baseMagicNumber2 = 2;
+        int baseMagicNumber2 = 1;
         int UPG_Number = 1;
         setDamage(baseDamage, UPG_Damage);
         setCustomVar("Magic", baseMagicNumber2, UPG_Number);

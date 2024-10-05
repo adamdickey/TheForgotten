@@ -157,5 +157,12 @@
       "Whenever your hand becomes empty during your turn, gain #b",
       " Block."
     ]
+  },
+  "${modID}:Enlightenment": {
+    "NAME": "Enlightenment",
+    "DESCRIPTIONS": [
+      "Your maximum hand size is increased by #b",
+      " this combat."
+    ]
   }
 }

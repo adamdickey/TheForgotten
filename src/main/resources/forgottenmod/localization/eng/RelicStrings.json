@@ -75,5 +75,33 @@
     "DESCRIPTIONS": [
       "At the start of enemies' turns, they gain #b1 #yTrauma for every #b2 #yTrauma they have."
     ]
+  },
+  "${modID}:Reverse Choker": {
+    "NAME": "Reverse Choker",
+    "FLAVOR": "\"Immense power, but not limited enough.\" - Kublai the Great",
+    "DESCRIPTIONS": [
+      "Whenever you play your sixth card each turn, gain [E] ."
+    ]
+  },
+  "${modID}:Reverberating Plate": {
+    "NAME": "Reverberating Plate",
+    "FLAVOR": "The plate vibrates with an unnatural energy.",
+    "DESCRIPTIONS": [
+      "Whenever you draw a card with #yEcho, create an additional #yEcho."
+    ]
+  },
+  "${modID}:Planning Table": {
+    "NAME": "Planning Table",
+    "FLAVOR": "With this, you have more space to lay out your options.",
+    "DESCRIPTIONS": [
+      "Your maximum hand size is increased by #b2."
+    ]
+  },
+  "${modID}:Monk's Staff": {
+    "NAME": "Monk's Staff",
+    "FLAVOR": "Many monks have used this staff to perfect their techniques.",
+    "DESCRIPTIONS": [
+      "Whenever a card is #yRetained, increase its base damage and #yBlock by #b1."
+    ]
   }
 }

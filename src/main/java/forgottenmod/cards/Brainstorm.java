@@ -7,6 +7,9 @@ import forgottenmod.actions.StorageAction;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
+import static forgottenmod.BasicMod.selfStoring;
+import static forgottenmod.BasicMod.wasStored;
+
 public class Brainstorm extends BaseCard {
     public static final String ID = makeID("Brainstorm"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
@@ -24,12 +27,14 @@ public class Brainstorm extends BaseCard {
         int baseMagicNumber = 2;
         int UPG_Magic = 1;
         setMagic(baseMagicNumber, UPG_Magic);
+        this.tags.add(selfStoring);
+        this.tags.remove(wasStored);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(!this.purgeOnUse){
-            addToBot(new StorageAction(this, false));
+            addToBot(new StorageAction(this));
         }
         addToBot(new DrawCardAction(magicNumber));
     }

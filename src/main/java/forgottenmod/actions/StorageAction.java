@@ -1,6 +1,5 @@
 package forgottenmod.actions;
 
-import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -8,27 +7,21 @@ import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import forgottenmod.cards.Toolkit;
 import forgottenmod.powers.StoredPower;
+import forgottenmod.powers.UnceasingIdeasPower;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.wasStored;
 
 public class StorageAction extends AbstractGameAction {
     private final AbstractCard card;
-    private final boolean handCanBeEmpty;
 
-    public StorageAction(AbstractCard card, boolean handCanBeEmpty) {
+    public StorageAction(AbstractCard card) {
         this.card = card;
-        this.handCanBeEmpty = handCanBeEmpty;
     }
 
     public void update() {
-        if(player.hand.isEmpty() && !player.hasPower(StoredPower.ID) && !card.hasTag(wasStored)){
-            addToBot(new DiscardToHandAction(card));
-            addToBot(new ReturnToHandAction(card));
-            this.isDone = true;
-            return;
-        }
         if((card.hasTag(wasStored)) || card.exhaust || card.purgeOnUse){
             this.isDone = true;
             return;
@@ -39,6 +32,18 @@ public class StorageAction extends AbstractGameAction {
                 this.isDone = true;
                 return;
             }
+        }
+        if(card instanceof Toolkit || player.hasPower(UnceasingIdeasPower.ID)){
+            addToBot(new ExhaustSpecificCardAction(card, player.discardPile));
+            addToBot(new ApplyPowerAction(player, player, new StoredPower(player, 1, card), 1));
+            this.isDone = true;
+            return;
+        }
+        if(player.hand.isEmpty() && !player.hasPower(StoredPower.ID)){
+            addToBot(new DiscardToHandAction(card));
+            addToBot(new ReturnToHandAction(card));
+            this.isDone = true;
+            return;
         }
         addToBot(new ExhaustSpecificCardAction(card, player.discardPile));
         addToBot(new ApplyPowerAction(player, player, new StoredPower(player, 1, card), 1));

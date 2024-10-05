@@ -9,6 +9,9 @@ import forgottenmod.actions.StorageAction;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
+import static forgottenmod.BasicMod.selfStoring;
+import static forgottenmod.BasicMod.wasStored;
+
 public class StorageAttack extends BaseCard {
     public static final String ID = makeID("Storage Attack"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
@@ -26,13 +29,15 @@ public class StorageAttack extends BaseCard {
         int baseDamage = 9;
         int UPG_Damage = 3;
         setDamage(baseDamage, UPG_Damage);
+        this.tags.add(selfStoring);
+        this.tags.remove(wasStored);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.NONE));
         if(!this.purgeOnUse){
-            addToBot(new StorageAction(this, false));
+            addToBot(new StorageAction(this));
         }
     }
 }

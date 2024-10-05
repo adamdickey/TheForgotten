@@ -23,8 +23,8 @@ public class DiscardDamage extends BaseCard {
     //but constants at the top of the file are easy to adjust.
     public DiscardDamage() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseDamage = 12;
-        int UPG_Damage = 4;
+        int baseDamage = 15;
+        int UPG_Damage = 5;
         setDamage(baseDamage, UPG_Damage);
     }
 
