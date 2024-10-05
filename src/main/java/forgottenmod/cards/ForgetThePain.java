@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.powers.EnlightenmentPower;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -31,12 +30,8 @@ public class ForgetThePain extends BaseCard {
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(p.hasPower(EnlightenmentPower.ID)){
-            addToBot(new MakeTempCardInHandAction(new Memory(), 2));
-        } else {
-            addToBot(new MakeTempCardInHandAction(new Forget(), 1));
-            addToBot(new MakeTempCardInHandAction(new Wound(), 1));
-        }
+        addToBot(new MakeTempCardInHandAction(new Forget(), 1));
+        addToBot(new MakeTempCardInHandAction(new Wound(), 1));
         addToBot(new GainBlockAction(p, block));
     }
 }

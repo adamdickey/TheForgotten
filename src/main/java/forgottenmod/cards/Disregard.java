@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.powers.EnlightenmentPower;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -30,10 +29,6 @@ public class Disregard extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, block));
-        if(p.hasPower(EnlightenmentPower.ID)){
-            addToBot(new MakeTempCardInHandAction(new Memory(), 1));
-        } else {
-            addToBot(new MakeTempCardInHandAction(this.cardsToPreview, 1));
-        }
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview, 1));
     }
 }
