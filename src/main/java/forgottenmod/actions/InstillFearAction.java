@@ -2,7 +2,7 @@ package forgottenmod.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import forgottenmod.powers.Trauma;
+import forgottenmod.powers.TraumaPower;
 
 public class InstillFearAction extends AbstractGameAction {
 
@@ -11,8 +11,8 @@ public class InstillFearAction extends AbstractGameAction {
     }
 
     public void update() {
-        if(target.hasPower(Trauma.ID)){
-            if(target.getPower(Trauma.ID).amount >= 30){
+        if(target.hasPower(TraumaPower.ID)){
+            if(target.getPower(TraumaPower.ID).amount >= 30){
                 addToBot(new AwakenAction(target));
             }
         }

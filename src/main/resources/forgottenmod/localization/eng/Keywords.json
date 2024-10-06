@@ -18,7 +18,7 @@
       "storage",
       "Storage"
     ],
-    "DESCRIPTION": "Stored cards are returned to your hand when it is empty. Cards returned this way cost 0 this turn. Up to 3 cards can be stored at a time."
+    "DESCRIPTION": "Stored cards are returned to your hand when it is empty. Cards returned this way cost 0 this turn."
   },
   {
     "PROPER_NAME": "Trauma",

@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.powers.Trauma;
+import forgottenmod.powers.TraumaPower;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -35,6 +35,6 @@ public class CreateDread extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        addToBot(new ApplyPowerAction(m, p, new Trauma(magicNumber, m), magicNumber));
+        addToBot(new ApplyPowerAction(m, p, new TraumaPower(magicNumber, m), magicNumber));
     }
 }

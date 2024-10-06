@@ -1,13 +1,9 @@
 package forgottenmod.relics;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.actions.AwakenAction;
-import forgottenmod.powers.Trauma;
+import forgottenmod.powers.TraumaPower;
 import theforgotten.TheForgotten;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
@@ -24,7 +20,7 @@ public class ScaryMask extends BaseRelic {
     }
     public void atBattleStart() {
         for(AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters){
-            addToBot(new ApplyPowerAction(m, player, new Trauma(5, m), 5));
+            addToBot(new ApplyPowerAction(m, player, new TraumaPower(5, m), 5));
         }
     }
     public String getUpdatedDescription() {

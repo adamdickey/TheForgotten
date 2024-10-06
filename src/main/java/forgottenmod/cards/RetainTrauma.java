@@ -1,12 +1,8 @@
 package forgottenmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.actions.AwakenAction;
 import forgottenmod.actions.RetainTraumaAction;
-import forgottenmod.powers.Trauma;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 

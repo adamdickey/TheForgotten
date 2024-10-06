@@ -1,12 +1,10 @@
 package forgottenmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.actions.AwakenAction;
+import forgottenmod.actions.ApplyTraumaAction;
 import forgottenmod.actions.StorageAction;
-import forgottenmod.powers.Trauma;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -37,12 +35,7 @@ public class AoeTrauma extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters){
-            if(mo.hasPower(Trauma.ID)){
-                addToBot(new ApplyPowerAction(mo, p, new Trauma(magicNumber, mo), magicNumber));
-                addToBot(new AwakenAction(mo));
-            } else {
-                addToBot(new ApplyPowerAction(mo, p, new Trauma(magicNumber, mo), magicNumber));
-            }
+            addToBot(new ApplyTraumaAction(mo, magicNumber));
         }
         addToBot(new StorageAction(this));
     }

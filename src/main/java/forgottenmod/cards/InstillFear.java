@@ -1,10 +1,8 @@
 package forgottenmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.actions.AwakenAction;
-import forgottenmod.powers.Trauma;
+import forgottenmod.actions.ApplyTraumaAction;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -29,11 +27,6 @@ public class InstillFear extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(m.hasPower(Trauma.ID)){
-            addToBot(new ApplyPowerAction(m, p, new Trauma(magicNumber, m), magicNumber));
-            addToBot(new AwakenAction(m));
-        } else {
-            addToBot(new ApplyPowerAction(m, p, new Trauma(magicNumber, m), magicNumber));
-        }
+        addToBot(new ApplyTraumaAction(m, magicNumber));
     }
 }

@@ -36,7 +36,8 @@
   },
   "${modID}:Extra Turn Spell": {
     "NAME": "Extra Turn Spell",
-    "DESCRIPTION": "Take an extra turn after this one. NL Draw 2 fewer cards at the start of that turn. NL End the turn. NL Exhaust."
+    "DESCRIPTION": "Take an extra turn after this one. NL Draw !M! fewer cards at the start of that turn. NL End the turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Take an extra turn after this one. NL Draw !M! fewer card at the start of that turn. NL End the turn. NL Exhaust."
   },
   "${modID}:Common Echo Attack": {
     "NAME": "Common Echo Attack",

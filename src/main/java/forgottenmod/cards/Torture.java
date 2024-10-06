@@ -4,8 +4,9 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import forgottenmod.actions.ApplyTraumaAction;
 import forgottenmod.actions.AwakenAction;
-import forgottenmod.powers.Trauma;
+import forgottenmod.powers.TraumaPower;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -38,12 +39,7 @@ public class Torture extends BaseCard {
                 count++;
         }
         if(count > 0){
-            if(m.hasPower(Trauma.ID)){
-                addToBot(new ApplyPowerAction(m, p, new Trauma(count*magicNumber, m), count*magicNumber));
-                addToBot(new AwakenAction(m));
-            } else {
-                addToBot(new ApplyPowerAction(m, p, new Trauma(count*magicNumber, m), count*magicNumber));
-            }
+            addToBot(new ApplyTraumaAction(m, count*magicNumber));
         }
     }
     public void applyPowers() {

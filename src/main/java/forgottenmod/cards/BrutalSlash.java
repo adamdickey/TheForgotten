@@ -1,13 +1,11 @@
 package forgottenmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.actions.AwakenAction;
-import forgottenmod.powers.Trauma;
+import forgottenmod.actions.ApplyTraumaAction;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
@@ -32,12 +30,7 @@ public class BrutalSlash extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        if(m.hasPower(Trauma.ID)){
-            addToBot(new ApplyPowerAction(m, p, new Trauma(magicNumber, m), magicNumber));
-            addToBot(new AwakenAction(m));
-        } else {
-            addToBot(new ApplyPowerAction(m, p, new Trauma(magicNumber, m), magicNumber));
-        }
+        addToBot(new ApplyTraumaAction(m, magicNumber));
         if (!this.upgraded) {
             this.rawDescription = cardStrings.DESCRIPTION;
         } else {

@@ -1,6 +1,5 @@
 package forgottenmod.cards;
 
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import forgottenmod.actions.StrikeHandAction;
@@ -26,7 +25,7 @@ public class StrikeHand extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new StrikeHandAction(this));
+        addToBot(new StrikeHandAction());
     }
     public void upgrade() {
         if (!this.upgraded) {

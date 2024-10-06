@@ -18,7 +18,6 @@ public class StayingPowerPower extends BasePower implements InvisiblePower {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
     public void atEndOfTurn(boolean isPlayer){
-        flash();
         addToBot(new StayingPowerAction(this.amount));
 
     }

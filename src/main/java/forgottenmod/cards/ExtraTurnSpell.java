@@ -24,18 +24,15 @@ public class ExtraTurnSpell extends BaseCard {
     public ExtraTurnSpell() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         this.exhaust = true;
+        int baseMagicNumber = 3;
+        int UPG_Number = -2;
+        setMagic(baseMagicNumber, UPG_Number);
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new DrawReduction2Power(p, 2)));
+        addToBot(new ApplyPowerAction(p, p, new DrawReduction2Power(p, magicNumber)));
         addToBot(new SkipEnemiesTurnAction());
         addToBot(new PressEndTurnButtonAction());
     }
 
-    public void upgrade() {
-        if (!this.upgraded) {
-            upgradeName();
-            upgradeBaseCost(1);
-        }
-    }
 }
