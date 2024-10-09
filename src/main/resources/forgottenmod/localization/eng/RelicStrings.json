@@ -13,13 +13,6 @@
       "At the start of each combat, draw 1 additional card for each Innate or Bottled card in your deck."
     ]
   },
-  "${modID}:Hardwood Barrel": {
-    "NAME": "Hardwood Barrel",
-    "FLAVOR": "Nice to have until you're scraping the bottom of it.                      Designed by u/Charrat",
-    "DESCRIPTIONS": [
-      "Gain [E] at the start of each turn until you shuffle your draw pile."
-    ]
-  },
   "${modID}:Reality Box": {
     "NAME": "Reality Box",
     "FLAVOR": "The reality within the box holds a great power.",
@@ -73,7 +66,7 @@
     "NAME": "Monster Skull",
     "FLAVOR": "A souvenir from your past encounters.",
     "DESCRIPTIONS": [
-      "At the start of enemies' turns, they gain #b1 #yTrauma for every #b2 #yTrauma they have."
+      "At the start of enemies' turns, they gain #b1 #yTrauma for every #b2 #yTrauma they have instead of the normal amount."
     ]
   },
   "${modID}:Reverse Choker": {
@@ -83,16 +76,16 @@
       "Whenever you play your sixth card each turn, gain [E] ."
     ]
   },
-  "${modID}:Reverberating Plate": {
-    "NAME": "Reverberating Plate",
-    "FLAVOR": "The plate vibrates with an unnatural energy.",
+  "${modID}:Reverberating Bell": {
+    "NAME": "Reverberating Bell",
+    "FLAVOR": "The bell's chime can be heard over massive distances.",
     "DESCRIPTIONS": [
       "Whenever you draw a card with #yEcho, create an additional #yEcho."
     ]
   },
-  "${modID}:Planning Table": {
-    "NAME": "Planning Table",
-    "FLAVOR": "With this, you have more space to lay out your options.",
+  "${modID}:Notebook": {
+    "NAME": "Notebook",
+    "FLAVOR": "With this, you have space to plan out your options.",
     "DESCRIPTIONS": [
       "Your maximum hand size is increased by #b2."
     ]

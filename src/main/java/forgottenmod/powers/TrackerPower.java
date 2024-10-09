@@ -1,5 +1,6 @@
 package forgottenmod.powers;
 
+import basemod.BaseMod;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
@@ -28,11 +29,7 @@ public class TrackerPower extends BasePower implements InvisiblePower {
         }
     }
     public void onDrawOrDiscard(){
-        int handSize = 10;
-        if(player.hasPower(HandSizeIncrease.ID)){
-            handSize = 10 + player.getPower(HandSizeIncrease.ID).amount;
-        }
-        if(player.hand.size() == handSize){
+        if(player.hand.size() == BaseMod.MAX_HAND_SIZE){
             for(AbstractCard c : player.hand.group){
                 if(c instanceof ExhaustDexterity){
                     addToBot(new ApplyPowerAction(player, player, new DexterityPower(player, c.magicNumber)));

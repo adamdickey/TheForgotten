@@ -2,16 +2,15 @@ package forgottenmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import forgottenmod.actions.DiscardToFiveAction;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
-public class FiveCardScrape extends BaseCard {
-    public static final String ID = makeID("Five Card Scrape"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
+public class Learn extends BaseCard {
+    public static final String ID = makeID("Learn"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
             TheForgotten.Enums.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a basegame character color.
             CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
@@ -22,19 +21,17 @@ public class FiveCardScrape extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public FiveCardScrape() {
+    public Learn() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseDamage = 7;
+        int baseDamage = 8;
         int UPG_Damage = 3;
-        int baseMagicNumber = 2;
-        int UPG_Number = 1;
         setDamage(baseDamage, UPG_Damage);
-        setMagic(baseMagicNumber, UPG_Number);
+        this.cardsToPreview = new Memory();
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.NONE));
-        addToBot(new DrawCardAction(magicNumber, new DiscardToFiveAction()));
+        addToBot(new MakeTempCardInHandAction(this.cardsToPreview, 1));
     }
 }

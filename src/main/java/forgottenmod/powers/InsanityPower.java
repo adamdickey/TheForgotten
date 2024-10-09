@@ -6,10 +6,10 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
 
-public class HandSelfDamagePower extends BasePower {
+public class InsanityPower extends BasePower {
 
-    public static final String ID = makeID("Hand Self Damage");
-    public HandSelfDamagePower(int amount) {
+    public static final String ID = makeID("Insanity");
+    public InsanityPower(int amount) {
         super(ID, PowerType.DEBUFF, false, player, player, amount, true);
         loadRegion("wraithForm");
     }

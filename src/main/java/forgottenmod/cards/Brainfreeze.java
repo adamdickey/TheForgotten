@@ -10,8 +10,8 @@ import theforgotten.TheForgotten;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 
-public class RetainHand extends BaseCard {
-    public static final String ID = makeID("Retain Hand"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
+public class Brainfreeze extends BaseCard {
+    public static final String ID = makeID("Brainfreeze"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
             TheForgotten.Enums.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a basegame character color.
             CardType.SKILL, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
@@ -22,7 +22,7 @@ public class RetainHand extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public RetainHand() {
+    public Brainfreeze() {
         super(ID, info);
         int baseMagicNumber = 2;
         int UPG_Number = 1;

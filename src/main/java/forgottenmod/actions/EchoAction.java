@@ -6,7 +6,7 @@ import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import forgottenmod.relics.ReverberatingPlate;
+import forgottenmod.relics.ReverberatingBell;
 
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.isEcho;
@@ -34,7 +34,7 @@ public class EchoAction extends AbstractGameAction {
         if(!echo.exhaust){
             CardModifierManager.addModifier(echo, new ExhaustMod());
         }
-        if(player.hasRelic(ReverberatingPlate.ID)){
+        if(player.hasRelic(ReverberatingBell.ID)){
             addToBot(new MakeTempCardInHandAction(echo, amount+1, false));
         } else {
             addToBot(new MakeTempCardInHandAction(echo, amount, false));

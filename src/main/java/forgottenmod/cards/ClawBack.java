@@ -2,15 +2,16 @@ package forgottenmod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import forgottenmod.actions.ClawAction;
+import forgottenmod.actions.EchoAction;
 import forgottenmod.util.CardStats;
 import theforgotten.TheForgotten;
 
-public class DiscardRecurAttack extends BaseCard {
-    public static final String ID = makeID("Discard Recur Attack"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
+public class ClawBack extends BaseCard {
+    public static final String ID = makeID("Claw Back"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
             TheForgotten.Enums.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a basegame character color.
             CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
@@ -21,21 +22,21 @@ public class DiscardRecurAttack extends BaseCard {
 
     //These will be used in the constructor. Technically you can just use the values directly,
     //but constants at the top of the file are easy to adjust.
-    public DiscardRecurAttack() {
+    public ClawBack() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
-        int baseDamage = 3;
-        int UPG_Damage = 2;
+        int baseDamage = 1;
+        int UPG_Damage = 1;
+        int baseMagicNumber = 1;
+        int UPG_Number = 0;
         setDamage(baseDamage, UPG_Damage);
+        setMagic(baseMagicNumber, UPG_Number);
     }
-
+    public void triggerWhenDrawn() {
+        addToBot(new EchoAction(this, 1));
+    }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-    }
-    public void triggerOnManualDiscard(){
-        addToBot(new DiscardToHandAction(this));
-    }
-    public void didDiscard(){
-        addToBot(new DiscardToHandAction(this));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ClawAction(this, this.magicNumber));
     }
 }

@@ -78,9 +78,9 @@ public class StoredPower extends BasePower implements InvisiblePower {
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
         triggered = false;
-        if(card instanceof Recollect){
+        if(card instanceof Remember){
             for(AbstractCard c : storedCards){
-                if(!(c instanceof Recollect)){
+                if(!(c instanceof Remember)){
                     AbstractCard tmp = c.makeSameInstanceOf();
                     tmp.purgeOnUse = true;
                     AbstractMonster monster = AbstractDungeon.getRandomMonster();

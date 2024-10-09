@@ -102,15 +102,15 @@
       " cards you draw each turn have Echo."
     ]
   },
-  "${modID}:Extra Draw": {
-    "NAME": "Extra Draw",
+  "${modID}:Hearing Voices": {
+    "NAME": "Hearing Voices",
     "DESCRIPTIONS": [
       "Draw #b",
       " additional cards each turn."
     ]
   },
-  "${modID}:Hand Self Damage": {
-    "NAME": "Hand Self Damage",
+  "${modID}:Insanity": {
+    "NAME": "Insanity",
     "DESCRIPTIONS": [
       "At the end of your turn, take #b",
       " damage for each card in your hand."

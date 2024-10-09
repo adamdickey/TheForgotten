@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.makeID;
 
-public class ExtraDrawPowerPower extends BasePower {
+public class HearingVoicesPower extends BasePower {
 
-    public static final String ID = makeID("Extra Draw");
-    public ExtraDrawPowerPower(int amount) {
+    public static final String ID = makeID("Hearing Voices");
+    public HearingVoicesPower(int amount) {
         super(ID, PowerType.BUFF, false, player, player, amount, true);
         loadRegion("rushdown");
     }

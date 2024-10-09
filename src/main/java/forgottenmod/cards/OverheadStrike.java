@@ -17,8 +17,8 @@ import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.player;
 import static forgottenmod.BasicMod.isEcho;
 
 
-public class WindmillStrike extends BaseCard {
-    public static final String ID = makeID("Windmill Strike"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
+public class OverheadStrike extends BaseCard {
+    public static final String ID = makeID("Overhead Strike"); //makeID adds the mod ID, so the final ID will be something like "modID:MyCard"
     private static final CardStats info = new CardStats(
             TheForgotten.Enums.CARD_COLOR, //The card color. If you're making your own character, it'll look something like this. Otherwise, it'll be CardColor.RED or something similar for a base game character color.
             AbstractCard.CardType.ATTACK, //The type. ATTACK/SKILL/POWER/CURSE/STATUS
@@ -36,7 +36,7 @@ public class WindmillStrike extends BaseCard {
     int cardsRetained = 0;
     boolean retained = false;
 
-    public WindmillStrike() {
+    public OverheadStrike() {
         super(ID, info); //Pass the required information to the BaseCard constructor.
         setDamage(DAMAGE, UPG_DAMAGE); //Sets the card's damage and how much it changes when upgraded.
         setMagic(baseMagicNumber, UPG_Number);
